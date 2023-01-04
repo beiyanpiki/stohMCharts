@@ -21,7 +21,7 @@
 .app-sidebar {
     position: relative;
     width: 250px;
-    margin:30px
+    margin: 25px
 }
 
 .node {
@@ -34,10 +34,11 @@
     box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.06);
 }
 
-.node.parent{
+.node.parent {
     border-left: 4px solid #ff6600;
 }
-.node.child{
+
+.node.child {
     border-left: 4px solid #39c5bb;
 }
 

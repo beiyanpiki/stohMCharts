@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {Graph} from '@antv/x6'
+import {Graph, Shape} from '@antv/x6'
 import {Transform} from "@antv/x6-plugin-transform";
 import {Selection} from "@antv/x6-plugin-selection";
 import {Snapline} from "@antv/x6-plugin-snapline";
@@ -10,14 +10,21 @@ import {Stencil} from '@antv/x6-plugin-stencil'
 import {register} from '@antv/x6-react-shape'
 
 import {DelayExpState, DelayNormalState, DelayState, DelayUnifState, State} from './components'
-import {DelayExpStateInfo, DelayNormalStateInfo, DelayStateInfo, DelayUnifStateInfo, StateInfo} from './sidebar'
+import {
+    DelayExpStateInfo,
+    DelayNormalStateInfo,
+    DelayStateInfo,
+    DelayUnifStateInfo, ProbabilityTransitionSidebar,
+    StateInfo,
+    TransitionSidebar
+} from './sidebar'
 
 const ports = {
     groups: {
         top: {
             position: 'top', attrs: {
                 circle: {
-                    r: 4, magnet: true, stroke: '#5F95FF', strokeWidth: 1, fill: '#fff', style: {
+                    r: 8, magnet: true, stroke: '#5F95FF', strokeWidth: 2, fill: '#fff', style: {
                         visibility: 'hidden',
                     },
                 },
@@ -25,7 +32,7 @@ const ports = {
         }, right: {
             position: 'right', attrs: {
                 circle: {
-                    r: 4, magnet: true, stroke: '#5F95FF', strokeWidth: 1, fill: '#fff', style: {
+                    r: 8, magnet: true, stroke: '#5F95FF', strokeWidth: 2, fill: '#fff', style: {
                         visibility: 'hidden',
                     },
                 },
@@ -33,7 +40,7 @@ const ports = {
         }, bottom: {
             position: 'bottom', attrs: {
                 circle: {
-                    r: 4, magnet: true, stroke: '#5F95FF', strokeWidth: 1, fill: '#fff', style: {
+                    r: 8, magnet: true, stroke: '#5F95FF', strokeWidth: 2, fill: '#fff', style: {
                         visibility: 'hidden',
                     },
                 },
@@ -41,7 +48,7 @@ const ports = {
         }, left: {
             position: 'left', attrs: {
                 circle: {
-                    r: 4, magnet: true, stroke: '#5F95FF', strokeWidth: 1, fill: '#fff', style: {
+                    r: 8, magnet: true, stroke: '#5F95FF', strokeWidth: 2, fill: '#fff', style: {
                         visibility: 'hidden',
                     },
                 },
@@ -73,6 +80,47 @@ register({
 register({
     shape: 'delay-normal', width: 180, height: 86, component: DelayNormalState, effect: ['data']
 })
+Graph.registerNode('probability-node', {
+    inherit: 'circle', // 继承于 rect 节点
+    width: 30, height: 30, attrs: {
+        body: {
+            stroke: '#8f8f8f', strokeWidth: 1, fill: '#fff', rx: 6, ry: 6,
+        },
+    },
+}, true,)
+
+
+// Register custom edge
+Graph.registerEdge("transition", {
+    inherit: 'edge',
+    router: {name: 'metro'},
+    connector: {name: 'rounded'},
+    attrs: {
+        line: {
+             stroke: '#faad14', strokeDasharray: null,targetMarker: 'classic',
+        },
+    },
+    data: {
+        guard: "",
+        sync: "",
+        update: ""
+    }
+})
+Graph.registerEdge("probability-transition", {
+    inherit: 'edge',
+    router: {name: 'metro'},
+    connector: {name: 'rounded'},
+    attrs: {
+        line: {
+            stroke: '#1890ff', strokeDasharray: 5, targetMarker: 'classic',
+        },
+    },
+    data: {
+        sync: "",
+        update: "",
+        weight: 0,
+    }
+})
 
 const Layout = () => {
     const refContainer = useRef(null);
@@ -94,6 +142,14 @@ const Layout = () => {
                             fill: '#5F95FF', stroke: '#5F95FF',
                         },
                     },
+                },
+            }, connecting: {
+                anchor: 'center', connectionPoint: 'anchor', allowBlank: false, snap: {
+                    radius: 20,
+                }, createEdge() {
+                    return graph.createEdge({shape: 'transition'})
+                }, validateConnection({targetMagnet}) {
+                    return !!targetMagnet
                 },
             },
         })
@@ -176,6 +232,7 @@ const Layout = () => {
             }
         })
 
+
         // Init node ports
         const showPorts = (ports, show) => {
             for (let i = 0, len = ports.length; i < len; i = i + 1) {
@@ -205,6 +262,7 @@ const Layout = () => {
                 {name: "DELAY_EXP", title: 'DelayExp(rate)'},
                 {name: "DELAY_UNIF", title: 'DelayUnif(a, b)'},
                 {name: "DELAY_NORMAL", title: 'Normal(a, u)'},
+                {name: "PROBABILITY_NODE", title: 'Probability'},
             ],
         });
         refStencilContainer.current.appendChild(stencil.container);
@@ -244,19 +302,27 @@ const Layout = () => {
             data: {title: "NEW STATE", exp: "", a: 10, u: 5, composite: false},
             ports: {...ports}
         })
+        const r6 = graph.createNode({
+            shape: 'probability-node',
+            x: 180,
+            y: 40,
+            data: {},
+            ports: {...ports}
+        })
         stencil.load([r1], 'STATE')
         stencil.load([r2], 'DELAY_EXP')
         stencil.load([r3], 'DELAY_UNIF')
         stencil.load([r4], 'DELAY')
         stencil.load([r5], 'DELAY_NORMAL')
+        stencil.load([r6], 'PROBABILITY_NODE')
 
         // Init node&edge action
-        graph.on('node:click', (props) => {
+        graph.on('cell:click', (props) => {
             const {e, x, y, cell, view} = props;
             console.log('cell click', {e, x, y, cell, view})
 
             setState({
-                shape: cell.shape, id: cell.id, x: x, y: y, data: cell.data ? cell.data : {}
+                shape: cell.shape, id: cell.id, data: cell.data ? cell.data : {}
             })
         })
 
@@ -279,7 +345,9 @@ const Layout = () => {
                             composite: state.data.composite
                         }} onChange={(newState) => {
                             setState({
-                                id: newState.id, data: {
+                                id: newState.id,
+                                shape: state.shape,
+                                data: {
                                     title: newState.title,
                                     exp: newState.exp,
                                     inv: newState.inv,
@@ -303,8 +371,8 @@ const Layout = () => {
                             composite: state.data.composite
                         }} onChange={(newState) => {
                             setState({
-                                id: newState.id,
-                                data: {
+                                id: newState.id, data: {
+                                    shape: state.shape,
                                     title: newState.title,
                                     exp: newState.exp,
                                     rate: newState.rate,
@@ -330,10 +398,12 @@ const Layout = () => {
                         }} onChange={(newState) => {
                             setState({
                                 id: newState.id,
+                                shape: state.shape,
                                 data: {
                                     title: newState.title,
                                     exp: newState.exp,
-                                    a: newState.a, b: newState.b,
+                                    a: newState.a,
+                                    b: newState.b,
                                     composite: newState.composite
                                 }
                             })
@@ -341,7 +411,8 @@ const Layout = () => {
                             cell.setData({
                                 title: newState.title,
                                 exp: newState.exp,
-                                a: newState.a, b: newState.b,
+                                a: newState.a,
+                                b: newState.b,
                                 composite: newState.composite
                             })
                         }}/>
@@ -355,7 +426,7 @@ const Layout = () => {
                         }} onChange={(newState) => {
                             setState({
                                 id: newState.id,
-                                data: {
+                                shape: state.shape, data: {
                                     title: newState.title,
                                     exp: newState.exp,
                                     t: newState.t,
@@ -364,10 +435,7 @@ const Layout = () => {
                             })
                             const cell = G.getCellById(newState.id)
                             cell.setData({
-                                title: newState.title,
-                                exp: newState.exp,
-                                t: newState.t,
-                                composite: newState.composite
+                                title: newState.title, exp: newState.exp, t: newState.t, composite: newState.composite
                             })
                         }}/>
                     case 'delay-normal':
@@ -375,15 +443,18 @@ const Layout = () => {
                             id: state.id,
                             title: state.data.title,
                             inv: state.data.inv,
-                            a: state.data.a, u: state.data.u,
+                            a: state.data.a,
+                            u: state.data.u,
                             composite: state.data.composite
                         }} onChange={(newState) => {
                             setState({
                                 id: newState.id,
+                                shape: state.shape,
                                 data: {
                                     title: newState.title,
                                     inv: newState.inv,
-                                    a: newState.a, u: newState.u,
+                                    a: newState.a,
+                                    u: newState.u,
                                     composite: newState.composite
                                 }
                             })
@@ -391,10 +462,96 @@ const Layout = () => {
                             cell.setData({
                                 title: newState.title,
                                 inv: newState.inv,
-                                a: newState.a, u: newState.u,
+                                a: newState.a,
+                                u: newState.u,
                                 composite: newState.composite
                             })
                         }}/>
+                    case 'transition':
+                        return <TransitionSidebar state={{
+                            id: state.id,
+                            guard: state.data.guard,
+                            sync: state.data.sync,
+                            update: state.data.update
+                        }} onChange={(newState) => {
+                            console.log(newState)
+                            setState({
+                                id: newState.id,
+                                shape: state.shape,
+                                data: {
+                                    guard: newState.guard,
+                                    sync: newState.sync,
+                                    update: newState.update
+                                }
+                            })
+                            const cell = G.getCellById(newState.id)
+                            cell.setData({
+                                guard: newState.guard,
+                                sync: newState.sync,
+                                update: newState.update
+                            })
+                        }} onSwitch={() => {
+                            setState({
+                                id: state.id,
+                                shape: 'probability-transition',
+                                data: {
+                                    sync: "",
+                                    update: "",
+                                    weight: 0,
+                                }
+                            })
+                            const cell = G.getCellById(state.id)
+                            cell.prop('shape', 'probability-transition')
+                            cell.attr('line/stroke','#1890ff')
+                            cell.attr('line/strokeDasharray',5)
+                            cell.setData({
+                                sync: "",
+                                update: "",
+                                weight: 0,
+                            })
+                        }}/>
+                    case 'probability-transition': return <ProbabilityTransitionSidebar state={{
+                        id: state.id,
+                        weight: state.data.weight,
+                        sync: state.data.sync,
+                        update: state.data.update
+                    }} onChange={(newState) => {
+                        setState({
+                            id: newState.id,
+                            shape: state.shape,
+                            data: {
+                                weight: newState.weight,
+                                sync: newState.sync,
+                                update: newState.update
+                            }
+                        })
+                        const cell = G.getCellById(newState.id)
+                        cell.setData({
+                            weight: newState.weight,
+                            sync: newState.sync,
+                            update: newState.update
+                        })
+                    }} onSwitch={() => {
+                        setState({
+                            id: state.id,
+                            shape: 'transition',
+                            data: {
+                                sync: "",
+                                update: "",
+                                guard: '',
+                            }
+                        })
+                        const cell = G.getCellById(state.id)
+                        cell.prop('shape', 'probability-transition')
+                        cell.attr('line/stroke','#faad14')
+                        cell.attr('line/strokeDasharray',null)
+
+                        cell.setData({
+                            sync: "",
+                            update: "",
+                            weight: 0,
+                        })
+                    }}/>
                 }
             })()}
 
