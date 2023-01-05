@@ -1,15 +1,15 @@
 {
-  "main.css": "/stohmcharts/static/css/main.288be31f.chunk.css",
-  "main.js": "/stohmcharts/static/js/main.7e8a1d48.chunk.js",
-  "main.js.map": "/stohmcharts/static/js/main.7e8a1d48.chunk.js.map",
-  "static/css/1.6c513b73.chunk.css": "/stohmcharts/static/css/1.6c513b73.chunk.css",
-  "static/js/1.fe270364.chunk.js": "/stohmcharts/static/js/1.fe270364.chunk.js",
-  "static/js/1.fe270364.chunk.js.map": "/stohmcharts/static/js/1.fe270364.chunk.js.map",
-  "runtime~main.js": "/stohmcharts/static/js/runtime~main.f1b0884f.js",
-  "runtime~main.js.map": "/stohmcharts/static/js/runtime~main.f1b0884f.js.map",
-  "static/css/1.6c513b73.chunk.css.map": "/stohmcharts/static/css/1.6c513b73.chunk.css.map",
-  "static/css/main.288be31f.chunk.css.map": "/stohmcharts/static/css/main.288be31f.chunk.css.map",
-  "index.html": "/stohmcharts/index.html",
-  "precache-manifest.d9a1ceda42e6962d9af06c4186e7f8a6.js": "/stohmcharts/precache-manifest.d9a1ceda42e6962d9af06c4186e7f8a6.js",
-  "service-worker.js": "/stohmcharts/service-worker.js"
+  "main.css": "/stohMCharts/static/css/main.288be31f.chunk.css",
+  "main.js": "/stohMCharts/static/js/main.7e8a1d48.chunk.js",
+  "main.js.map": "/stohMCharts/static/js/main.7e8a1d48.chunk.js.map",
+  "static/css/1.6c513b73.chunk.css": "/stohMCharts/static/css/1.6c513b73.chunk.css",
+  "static/js/1.7bec4c3a.chunk.js": "/stohMCharts/static/js/1.7bec4c3a.chunk.js",
+  "static/js/1.7bec4c3a.chunk.js.map": "/stohMCharts/static/js/1.7bec4c3a.chunk.js.map",
+  "runtime~main.js": "/stohMCharts/static/js/runtime~main.782216a8.js",
+  "runtime~main.js.map": "/stohMCharts/static/js/runtime~main.782216a8.js.map",
+  "static/css/main.288be31f.chunk.css.map": "/stohMCharts/static/css/main.288be31f.chunk.css.map",
+  "static/css/1.6c513b73.chunk.css.map": "/stohMCharts/static/css/1.6c513b73.chunk.css.map",
+  "index.html": "/stohMCharts/index.html",
+  "precache-manifest.6a10fdfb31561c6a80e8ee469df0cb95.js": "/stohMCharts/precache-manifest.6a10fdfb31561c6a80e8ee469df0cb95.js",
+  "service-worker.js": "/stohMCharts/service-worker.js"
 }

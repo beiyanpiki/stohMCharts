@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/stohmcharts/precache-manifest.d9a1ceda42e6962d9af06c4186e7f8a6.js"
+  "/stohMCharts/precache-manifest.6a10fdfb31561c6a80e8ee469df0cb95.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/stohmcharts/index.html", {
+workbox.routing.registerNavigationRoute("/stohMCharts/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
