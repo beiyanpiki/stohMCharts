@@ -1,5 +1,5 @@
 const DelayUnifState = ({node}) => {
-    const {title, composite, exp, a, b} = node.data
+    const {title, composite, exp, variable, a, b} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>
         <span className="label">
           <b>{title}</b>
@@ -10,7 +10,7 @@ const DelayUnifState = ({node}) => {
         </span>
         <br/>
         <span className="label">
-          <b>Inv.</b> DelayUnif({a}, {b})
+          <b>Inv.</b> {variable} = DelayUnif({a}, {b})
         </span>
     </div>
 }

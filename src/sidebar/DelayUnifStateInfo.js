@@ -11,6 +11,7 @@ const DelayUnifStateInfo = ({state, onChange}) => {
         id: state.id,
         title: state.title,
         exp: state.exp ? state.exp : "",
+        variable: state.variable ? state.variable : "",
         a: state.a ? state.a : 10,
         b: state.b ? state.b : 20,
         composite: state.composite
@@ -24,6 +25,9 @@ const DelayUnifStateInfo = ({state, onChange}) => {
             <Input/>
         </Form.Item>
         <Form.Item label='Exp.' name='exp'>
+            <Input/>
+        </Form.Item>
+        <Form.Item label='Var.' name='variable'>
             <Input/>
         </Form.Item>
         <Form.Item label='a' name='a'>

@@ -7,7 +7,7 @@ const TransitionSidebar = ({state, onChange, onSwitch}) => {
         form.resetFields()
     }, [state])
 
-    return <Form labelCol={{span: 8}} wrapperCol={{span: 16}} form={form} initialValues={{
+    return <Form labelCol={{span: 4}} wrapperCol={{span: 20}} form={form} initialValues={{
         id: state.id,
         guard: state.guard,
         sync: state.sync,

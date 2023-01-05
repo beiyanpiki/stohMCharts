@@ -5,13 +5,13 @@ const DelayExpStateInfo = ({state, onChange}) => {
     const [form] = Form.useForm();
     useEffect(() => {
         form.resetFields()
-        // console.log(state.id, state.title, state.inv, state.exp, state.composite)
     }, [state])
 
     return <Form labelCol={{span: 4}} wrapperCol={{span: 20}} form={form} initialValues={{
         id: state.id,
         title: state.title,
         exp: state.exp ? state.exp : "",
+        variable: state.variable ? state.variable : '',
         rate: state.rate ? state.rate : 2,
         composite: state.composite
     }} onFinish={(values) => {
@@ -25,6 +25,9 @@ const DelayExpStateInfo = ({state, onChange}) => {
         </Form.Item>
 
         <Form.Item label='Exp.' name='exp'>
+            <Input/>
+        </Form.Item>
+        <Form.Item label='Var.' name='variable'>
             <Input/>
         </Form.Item>
         <Form.Item label='Rate' name='rate'>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN'
+        'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+    <declaration>// Place global declarations here.</declaration>
+    <template>
+        <name>Template</name>
+        <declaration>// Place local declarations here.</declaration>
+        <location id="dae1165e-9beb-4d85-bb34-9931c43a014a" x="100" y="0">
+            <name x="100" y="20">NEW STATE</name>
+            <label kind="invariant" x="100" y="40">c &lt;= 20</label>
+        </location>
+        <location id="07b3d3eb-6af4-4d95-ac45-ec54bed9dee4" x="200" y="0">
+            <name x="200" y="20">NEW STATE</name>
+            <label kind="exponentialrate" x="200" y="60">2</label>
+        </location>
+        <location id="113b140c-dfa9-4ca6-af49-1e96384d8fc2" x="300" y="0">
+            <name x="300" y="20">NEW STATE</name>
+        </location>
+        <location id="e0327f75-2ca3-4470-adb3-43fe194c81fc" x="400" y="0">
+            <name x="400" y="20">NEW STATE</name>
+        </location>
+        <location id="e82304cf-4ea9-46ec-b7a1-2d22961d10b4" x="500" y="0">
+            <name x="500" y="20">NEW STATE</name>
+        </location>
+        <location id="Znl8j5Ir-JaUH-6GJy-Scd4-XWoJTR2puiwc" x="600" y="0">
+            <label kind="invariant" x="600" y="40">c &lt;= 5</label>
+        </location>
+        <location id="0551cbd3-8a33-4b2d-82f3-f4bf2576f880" x="800" y="0">
+            <name x="800" y="20">NEW STATE</name>
+        </location>
+        <location id="acdefd6e-d723-4a43-9e64-de3b4c654073" x="900" y="0">
+            <name x="900" y="20">NEW STATE</name>
+        </location>
+        <branchpoint id="60565c16-79d2-4c0d-bae1-3ff4b8dcb671" x="700" y="0"/>
+        <init ref="dae1165e-9beb-4d85-bb34-9931c43a014a"/>
+        <transition>
+            <source ref="dae1165e-9beb-4d85-bb34-9931c43a014a"/>
+            <target ref="07b3d3eb-6af4-4d95-ac45-ec54bed9dee4"/>
+            <label kind="guard" x="150" y="10">c &gt;= 10</label>
+        </transition>
+        <transition>
+            <source ref="07b3d3eb-6af4-4d95-ac45-ec54bed9dee4"/>
+            <target ref="113b140c-dfa9-4ca6-af49-1e96384d8fc2"/>
+        </transition>
+        <transition>
+            <source ref="113b140c-dfa9-4ca6-af49-1e96384d8fc2"/>
+            <target ref="e0327f75-2ca3-4470-adb3-43fe194c81fc"/>
+        </transition>
+        <transition>
+            <source ref="e0327f75-2ca3-4470-adb3-43fe194c81fc"/>
+            <target ref="Znl8j5Ir-JaUH-6GJy-Scd4-XWoJTR2puiwc"/>
+            <label kind="update" x="450" y="30">c = 0</label>
+        </transition>
+        <transition>
+            <source ref="e82304cf-4ea9-46ec-b7a1-2d22961d10b4"/>
+            <target ref="60565c16-79d2-4c0d-bae1-3ff4b8dcb671"/>
+        </transition>
+        <transition>
+            <source ref="Znl8j5Ir-JaUH-6GJy-Scd4-XWoJTR2puiwc"/>
+            <target ref="e82304cf-4ea9-46ec-b7a1-2d22961d10b4"/>
+            <label kind="guard" x="650" y="10">c == 5</label>
+        </transition>
+        <transition>
+            <source ref="60565c16-79d2-4c0d-bae1-3ff4b8dcb671"/>
+            <target ref="0551cbd3-8a33-4b2d-82f3-f4bf2576f880"/>
+            <label kind="probability" x="750" y="10">0.2549019607843137</label>
+        </transition>
+        <transition>
+            <source ref="60565c16-79d2-4c0d-bae1-3ff4b8dcb671"/>
+            <target ref="acdefd6e-d723-4a43-9e64-de3b4c654073"/>
+            <label kind="probability" x="750" y="10">0.7450980392156863</label>
+        </transition>
+    </template>
+    <system>// Place template instantiations here.
+        Process = Template();
+        // List one or more processes to be composed into a system.
+        system Process;
+    </system>
+    <queries>
+        <query>
+            <formula/>
+            <comment/>
+        </query>
+    </queries>
+</nta>

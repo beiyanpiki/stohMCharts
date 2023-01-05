@@ -11,6 +11,7 @@ const DelayNormalStateInfo = ({state, onChange}) => {
         id: state.id,
         title: state.title,
         inv: state.inv ? state.inv : "",
+        variable: state.variable ? state.variable : "",
         a: state.a ? state.a : 10,
         u: state.u ? state.u : 20,
         composite: state.composite
@@ -21,6 +22,9 @@ const DelayNormalStateInfo = ({state, onChange}) => {
             <Input disabled/>
         </Form.Item>
         <Form.Item label='Title' name='title'>
+            <Input/>
+        </Form.Item>
+        <Form.Item label='Var.' name='variable'>
             <Input/>
         </Form.Item>
         <Form.Item label='a' name='a'>

@@ -1,5 +1,5 @@
 const DelayExpState = ({node}) => {
-    const {title, composite, exp, rate} = node.data
+    const {title, composite, exp, variable, rate} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>
         <span className="label">
           <b>{title}</b>
@@ -10,7 +10,7 @@ const DelayExpState = ({node}) => {
         </span>
         <br/>
         <span className="label">
-          <b>Inv.</b> DelayExp({rate})
+          <b>Inv.</b> {variable} = DelayExp({rate})
         </span>
     </div>
 }

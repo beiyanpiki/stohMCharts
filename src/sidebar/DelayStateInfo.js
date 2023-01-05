@@ -11,6 +11,7 @@ const DelayStateInfo = ({state, onChange}) => {
         id: state.id,
         title: state.title,
         exp: state.exp ? state.exp : "",
+        variable: state.variable ? state.variable : '',
         t: state.t ? state.t : 5,
         composite: state.composite
     }} onFinish={(values) => {
@@ -22,8 +23,10 @@ const DelayStateInfo = ({state, onChange}) => {
         <Form.Item label='Title' name='title'>
             <Input/>
         </Form.Item>
-
         <Form.Item label='Exp.' name='exp'>
+            <Input/>
+        </Form.Item>
+        <Form.Item label='Var.' name='variable'>
             <Input/>
         </Form.Item>
         <Form.Item label='t' name='t'>
