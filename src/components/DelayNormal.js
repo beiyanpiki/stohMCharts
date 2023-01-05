@@ -1,3 +1,4 @@
+import React from 'react'
 const DelayNormalState = ({node}) => {
     const {title, composite, variable, a, u, inv} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>

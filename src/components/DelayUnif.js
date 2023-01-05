@@ -1,3 +1,4 @@
+import React from 'react'
 const DelayUnifState = ({node}) => {
     const {title, composite, exp, variable, a, b} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>

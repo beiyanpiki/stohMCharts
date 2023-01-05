@@ -1,11 +1,10 @@
-import {Button, Checkbox, Form, Input, InputNumber} from 'antd';
-import {useEffect} from "react";
+import {Button, Checkbox, Form, Input} from 'antd';
+import React, {useEffect} from "react";
 
 const StateInfo = ({state, onChange}) => {
     const [form] = Form.useForm();
     useEffect(() => {
         form.resetFields()
-        // console.log(state.id, state.title, state.inv, state.exp, state.composite)
     }, [state])
 
     return <Form labelCol={{span: 4}} wrapperCol={{span: 20}} form={form} initialValues={{

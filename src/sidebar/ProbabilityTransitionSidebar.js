@@ -1,5 +1,5 @@
-import {Button, Radio, Form, Input, InputNumber} from "antd";
-import {useEffect} from "react";
+import {Button, Form, Input, InputNumber, Radio} from "antd";
+import React, {useEffect} from "react";
 
 const ProbabilityTransitionSidebar = ({state, onChange, onSwitch}) => {
     const [form] = Form.useForm();

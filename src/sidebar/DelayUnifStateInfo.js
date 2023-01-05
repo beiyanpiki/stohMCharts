@@ -1,5 +1,5 @@
 import {Button, Checkbox, Form, Input, InputNumber} from 'antd';
-import {useEffect} from "react";
+import React,{useEffect} from "react";
 
 const DelayUnifStateInfo = ({state, onChange}) => {
     const [form] = Form.useForm();

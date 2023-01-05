@@ -1,3 +1,5 @@
+import React from 'react'
+
 const DelayState = ({node}) => {
     const {title, composite, exp, variable, t} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>

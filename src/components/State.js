@@ -1,3 +1,5 @@
+import React from 'react'
+
 const State = ({node}) => {
     const {title, exp, inv, composite} = node.data
     return <div className={`node ${composite ? "parent" : "child"}`}>
