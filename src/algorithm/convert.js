@@ -24,8 +24,8 @@ class Graph {
         this.vertices.forEach((v) => {
             cnt.set(v, 0)
         })
-        for (let [_, edges] of this.adjList) {
-
+        for (let source in this.adjList) {
+            const edges = this.adjList[source]
             edges.forEach((edge_id) => {
                 const target = this.data.get(edge_id).target
                 if (cnt.has(target)) {
