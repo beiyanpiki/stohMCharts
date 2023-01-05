@@ -2,7 +2,7 @@
   "name": "stohmcharts",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://beiyanpiki.github.io/stohmcharts",
+  "homepage": "https://beiyanpiki.github.io/stohMCharts",
   "dependencies": {
     "@antv/x6": "^2.1.4",
     "@antv/x6-plugin-clipboard": "^2.1.3",
