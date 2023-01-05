@@ -25,6 +25,7 @@ class Graph {
             cnt.set(v, 0)
         })
         for (let [_, edges] of this.adjList) {
+
             edges.forEach((edge_id) => {
                 const target = this.data.get(edge_id).target
                 if (cnt.has(target)) {

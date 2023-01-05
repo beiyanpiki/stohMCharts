@@ -607,6 +607,8 @@ const Layout = () => {
                                 weight: 0,
                             })
                         }}/>
+                    default:
+                        return <div/>
                 }
             })()}
         </div>
