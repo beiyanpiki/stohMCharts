@@ -1,23 +1,134 @@
-const test_data_a = {
+export const test_data_a = {
     "cells": [
         {
             "position": {
-                "x": 60,
-                "y": 320
+                "x": 110,
+                "y": 100
+            },
+            "size": {
+                "width": 980,
+                "height": 520
+            },
+            "view": "react-shape-view",
+            "shape": "state",
+            "id": "d42792c0-3369-4281-88ea-2dd1d47df34e",
+            "data": {
+                "title": "A",
+                "exp": "",
+                "inv": "",
+                "composite": true
+            },
+            "ports": {
+                "groups": {
+                    "top": {
+                        "position": "top",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "position": "right",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "bottom": {
+                        "position": "bottom",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "left": {
+                        "position": "left",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    }
+                },
+                "items": [
+                    {
+                        "group": "top",
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+                    },
+                    {
+                        "group": "right",
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
+                    },
+                    {
+                        "group": "bottom",
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+                    },
+                    {
+                        "group": "left",
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+                    }
+                ]
+            },
+            "zIndex": 1,
+            "children": [
+                "e117d7aa-3ad4-404e-bcee-7b6f186daeec",
+                "9d3efdb3-f87f-4e78-a9c0-a9dc5805caa3",
+                "d502d11c-3c0b-4d15-99a5-480ef71af868",
+                "dbf27753-0dc0-4a7b-ad2c-71e163a93f43",
+                "17fb3b36-3d15-4438-b536-82fb04667055",
+                "c847f05b-f39b-4c1a-85b4-1cbdcf8950f2",
+                "5c73ddff-16f4-4bcd-a4d9-f366811d8c3a",
+                "de4750f4-b9f9-492c-89f7-6df3c9fb3a05",
+                "af6313c9-8705-4984-bdb6-23f2ed4612bb"
+            ]
+        },
+        {
+            "position": {
+                "x": 161,
+                "y": 317
             },
             "size": {
                 "width": 180,
                 "height": 86
             },
             "view": "react-shape-view",
-            "shape": "delay-unif",
-            "id": "dae1165e-9beb-4d85-bb34-9931c43a014a",
+            "shape": "state",
+            "id": "e117d7aa-3ad4-404e-bcee-7b6f186daeec",
             "data": {
-                "title": "NEW STATE",
+                "title": "A1",
                 "exp": "",
-                "variable": "c",
-                "a": 10,
-                "b": 20,
+                "inv": "",
                 "composite": false
             },
             "ports": {
@@ -86,235 +197,29 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "093f87d4-3a07-498b-9426-52dfd051189b"
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
                     },
                     {
                         "group": "right",
-                        "id": "8645606e-b683-42fe-9ac3-45a0e21b59f3"
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
                     },
                     {
                         "group": "bottom",
-                        "id": "d19ad04c-36ed-45d3-bbc3-4e2da68be6dc"
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
                     },
                     {
                         "group": "left",
-                        "id": "cdd718e5-d747-42ce-bd4d-e71ca351e984"
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
                     }
                 ]
             },
-            "zIndex": 1
+            "zIndex": 2,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "position": {
-                "x": 344,
-                "y": 320
-            },
-            "size": {
-                "width": 180,
-                "height": 86
-            },
-            "view": "react-shape-view",
-            "shape": "delay-exp",
-            "id": "07b3d3eb-6af4-4d95-ac45-ec54bed9dee4",
-            "data": {
-                "title": "NEW STATE",
-                "exp": "",
-                "variable": "c",
-                "rate": 2,
-                "composite": false
-            },
-            "ports": {
-                "groups": {
-                    "top": {
-                        "position": "top",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "right": {
-                        "position": "right",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "bottom": {
-                        "position": "bottom",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "left": {
-                        "position": "left",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    }
-                },
-                "items": [
-                    {
-                        "group": "top",
-                        "id": "ebfb6b49-4ae2-457f-91c0-02b00a773eb4"
-                    },
-                    {
-                        "group": "right",
-                        "id": "84bbc50c-7b45-4d84-b10b-d2a9ef9976e4"
-                    },
-                    {
-                        "group": "bottom",
-                        "id": "ef530fd4-3306-473a-bc2c-faaeb3c743bc"
-                    },
-                    {
-                        "group": "left",
-                        "id": "6505897b-f37e-4937-b24e-2002513b2419"
-                    }
-                ]
-            },
-            "zIndex": 2
-        },
-        {
-            "position": {
-                "x": 639,
-                "y": 320
-            },
-            "size": {
-                "width": 180,
-                "height": 86
-            },
-            "view": "react-shape-view",
-            "shape": "delay-normal",
-            "id": "113b140c-dfa9-4ca6-af49-1e96384d8fc2",
-            "data": {
-                "title": "NEW STATE",
-                "exp": "",
-                "variable": "v",
-                "a": 10,
-                "u": 5,
-                "composite": false
-            },
-            "ports": {
-                "groups": {
-                    "top": {
-                        "position": "top",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "right": {
-                        "position": "right",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "bottom": {
-                        "position": "bottom",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "left": {
-                        "position": "left",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    }
-                },
-                "items": [
-                    {
-                        "group": "top",
-                        "id": "8ebe39f1-e75d-4cb1-a6c4-ddc5e7830a2d"
-                    },
-                    {
-                        "group": "right",
-                        "id": "6593669e-bd6a-47c6-94df-f90110c35299"
-                    },
-                    {
-                        "group": "bottom",
-                        "id": "ab08214f-c4ea-4cb4-a1c5-65850226e2fa"
-                    },
-                    {
-                        "group": "left",
-                        "id": "656212b1-226b-49b4-b14c-98ea4e1a1083"
-                    }
-                ]
-            },
-            "zIndex": 3
-        },
-        {
-            "position": {
-                "x": 639,
-                "y": 514
+                "x": 436,
+                "y": 317
             },
             "size": {
                 "width": 180,
@@ -322,9 +227,9 @@ const test_data_a = {
             },
             "view": "react-shape-view",
             "shape": "delay",
-            "id": "e0327f75-2ca3-4470-adb3-43fe194c81fc",
+            "id": "9d3efdb3-f87f-4e78-a9c0-a9dc5805caa3",
             "data": {
-                "title": "NEW STATE",
+                "title": "A2",
                 "exp": "",
                 "variable": "c",
                 "t": 5,
@@ -396,226 +301,29 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "88291e36-c470-41e5-b0bc-a16feac17472"
+                        "id": "724e8f7d-266c-4145-9c1b-717f521da6dc"
                     },
                     {
                         "group": "right",
-                        "id": "4a9e4d70-39f9-4f10-88f7-da345cb7d578"
+                        "id": "5c2655b9-d2cc-43aa-b76e-4deb6af11e02"
                     },
                     {
                         "group": "bottom",
-                        "id": "6e883722-aec1-492b-ac16-ea7adc32b695"
+                        "id": "3095bfb1-28a4-4a62-a6a6-1ce986a563d4"
                     },
                     {
                         "group": "left",
-                        "id": "e6a8a5b4-19fb-4686-b1d0-5ac4a68f8849"
+                        "id": "247497f9-a0ff-48aa-ba8f-e12b35064613"
                     }
                 ]
             },
-            "zIndex": 4
-        },
-        {
-            "shape": "transition",
-            "router": {
-                "name": "metro"
-            },
-            "connector": {
-                "name": "rounded"
-            },
-            "data": {
-                "guard": "",
-                "sync": "",
-                "update": ""
-            },
-            "id": "30565e2b-7bc5-4d91-94ad-816d002555b9",
-            "source": {
-                "cell": "dae1165e-9beb-4d85-bb34-9931c43a014a",
-                "port": "8645606e-b683-42fe-9ac3-45a0e21b59f3"
-            },
-            "target": {
-                "cell": "07b3d3eb-6af4-4d95-ac45-ec54bed9dee4",
-                "port": "6505897b-f37e-4937-b24e-2002513b2419"
-            },
-            "zIndex": 5
-        },
-        {
-            "shape": "transition",
-            "router": {
-                "name": "metro"
-            },
-            "connector": {
-                "name": "rounded"
-            },
-            "data": {
-                "guard": "",
-                "sync": "",
-                "update": ""
-            },
-            "id": "29f0fe87-4d17-4bc5-b6a8-f2f8bee0f58e",
-            "source": {
-                "cell": "07b3d3eb-6af4-4d95-ac45-ec54bed9dee4",
-                "port": "84bbc50c-7b45-4d84-b10b-d2a9ef9976e4"
-            },
-            "target": {
-                "cell": "113b140c-dfa9-4ca6-af49-1e96384d8fc2",
-                "port": "656212b1-226b-49b4-b14c-98ea4e1a1083"
-            },
-            "zIndex": 6
-        },
-        {
-            "shape": "transition",
-            "router": {
-                "name": "metro"
-            },
-            "connector": {
-                "name": "rounded"
-            },
-            "data": {
-                "guard": "",
-                "sync": "",
-                "update": ""
-            },
-            "id": "05acbb19-b621-4b87-82e1-8ae96c406489",
-            "source": {
-                "cell": "113b140c-dfa9-4ca6-af49-1e96384d8fc2",
-                "port": "ab08214f-c4ea-4cb4-a1c5-65850226e2fa"
-            },
-            "target": {
-                "cell": "e0327f75-2ca3-4470-adb3-43fe194c81fc",
-                "port": "88291e36-c470-41e5-b0bc-a16feac17472"
-            },
-            "zIndex": 7
+            "zIndex": 3,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "position": {
-                "x": 639,
-                "y": 667
-            },
-            "size": {
-                "width": 180,
-                "height": 86
-            },
-            "view": "react-shape-view",
-            "shape": "state",
-            "id": "e82304cf-4ea9-46ec-b7a1-2d22961d10b4",
-            "data": {
-                "title": "NEW STATE",
-                "exp": "",
-                "inv": "",
-                "composite": false
-            },
-            "ports": {
-                "groups": {
-                    "top": {
-                        "position": "top",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "right": {
-                        "position": "right",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "bottom": {
-                        "position": "bottom",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    },
-                    "left": {
-                        "position": "left",
-                        "attrs": {
-                            "circle": {
-                                "r": 8,
-                                "magnet": true,
-                                "stroke": "#5F95FF",
-                                "strokeWidth": 2,
-                                "fill": "#fff",
-                                "style": {
-                                    "visibility": "hidden"
-                                }
-                            }
-                        }
-                    }
-                },
-                "items": [
-                    {
-                        "group": "top",
-                        "id": "4d4360ec-34d7-4e60-8a1d-c4790ec7fbec"
-                    },
-                    {
-                        "group": "right",
-                        "id": "0cde881b-a818-4e06-89c6-9f6cbb3c4121"
-                    },
-                    {
-                        "group": "bottom",
-                        "id": "f8835677-3e9c-4bcd-83d4-3f41a8e69c19"
-                    },
-                    {
-                        "group": "left",
-                        "id": "45e866dc-757a-447d-87a5-f0cae9dbcfba"
-                    }
-                ]
-            },
-            "zIndex": 8
-        },
-        {
-            "shape": "transition",
-            "router": {
-                "name": "metro"
-            },
-            "connector": {
-                "name": "rounded"
-            },
-            "data": {
-                "guard": "",
-                "sync": "",
-                "update": ""
-            },
-            "id": "1c6e1262-a070-4ea4-94e7-10ba4192087d",
-            "source": {
-                "cell": "e0327f75-2ca3-4470-adb3-43fe194c81fc",
-                "port": "6e883722-aec1-492b-ac16-ea7adc32b695"
-            },
-            "target": {
-                "cell": "e82304cf-4ea9-46ec-b7a1-2d22961d10b4",
-                "port": "4d4360ec-34d7-4e60-8a1d-c4790ec7fbec"
-            },
-            "zIndex": 9
-        },
-        {
-            "position": {
-                "x": 947,
-                "y": 700
+                "x": 754,
+                "y": 350
             },
             "size": {
                 "width": 20,
@@ -623,7 +331,7 @@ const test_data_a = {
             },
             "visible": true,
             "shape": "probability-node",
-            "id": "60565c16-79d2-4c0d-bae1-3ff4b8dcb671",
+            "id": "d502d11c-3c0b-4d15-99a5-480ef71af868",
             "data": {},
             "ports": {
                 "groups": {
@@ -691,28 +399,29 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "9fec58db-8aee-4bd3-a550-ba5d4f88bf21"
+                        "id": "54e2d0ab-e2e6-4b20-8215-e2a50d4236a2"
                     },
                     {
                         "group": "right",
-                        "id": "a623f099-1acc-4f58-a998-4a40dc1ccb70"
+                        "id": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
                     },
                     {
                         "group": "bottom",
-                        "id": "6aacd9ad-c875-4b31-b1f0-ccf4e660972b"
+                        "id": "6855da3f-d57c-4ba2-939a-28882eb50ee4"
                     },
                     {
                         "group": "left",
-                        "id": "7ad0a58b-b2c8-4453-bea2-34be5478949f"
+                        "id": "b57cf501-9057-4bd8-b713-be28b4af0de4"
                     }
                 ]
             },
-            "zIndex": 10
+            "zIndex": 4,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "position": {
-                "x": 1099,
-                "y": 514
+                "x": 850,
+                "y": 170
             },
             "size": {
                 "width": 180,
@@ -720,9 +429,9 @@ const test_data_a = {
             },
             "view": "react-shape-view",
             "shape": "state",
-            "id": "0551cbd3-8a33-4b2d-82f3-f4bf2576f880",
+            "id": "dbf27753-0dc0-4a7b-ad2c-71e163a93f43",
             "data": {
-                "title": "NEW STATE",
+                "title": "A3",
                 "exp": "",
                 "inv": "",
                 "composite": false
@@ -793,28 +502,29 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "4d4360ec-34d7-4e60-8a1d-c4790ec7fbec"
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
                     },
                     {
                         "group": "right",
-                        "id": "0cde881b-a818-4e06-89c6-9f6cbb3c4121"
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
                     },
                     {
                         "group": "bottom",
-                        "id": "f8835677-3e9c-4bcd-83d4-3f41a8e69c19"
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
                     },
                     {
                         "group": "left",
-                        "id": "45e866dc-757a-447d-87a5-f0cae9dbcfba"
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
                     }
                 ]
             },
-            "zIndex": 11
+            "zIndex": 5,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "position": {
-                "x": 1099,
-                "y": 800
+                "x": 850,
+                "y": 443
             },
             "size": {
                 "width": 180,
@@ -822,9 +532,9 @@ const test_data_a = {
             },
             "view": "react-shape-view",
             "shape": "state",
-            "id": "acdefd6e-d723-4a43-9e64-de3b4c654073",
+            "id": "17fb3b36-3d15-4438-b536-82fb04667055",
             "data": {
-                "title": "NEW STATE",
+                "title": "A4",
                 "exp": "",
                 "inv": "",
                 "composite": false
@@ -895,23 +605,24 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "4d4360ec-34d7-4e60-8a1d-c4790ec7fbec"
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
                     },
                     {
                         "group": "right",
-                        "id": "0cde881b-a818-4e06-89c6-9f6cbb3c4121"
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
                     },
                     {
                         "group": "bottom",
-                        "id": "f8835677-3e9c-4bcd-83d4-3f41a8e69c19"
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
                     },
                     {
                         "group": "left",
-                        "id": "45e866dc-757a-447d-87a5-f0cae9dbcfba"
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
                     }
                 ]
             },
-            "zIndex": 12
+            "zIndex": 6,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "shape": "transition",
@@ -926,16 +637,42 @@ const test_data_a = {
                 "sync": "",
                 "update": ""
             },
-            "id": "880e264a-e137-4674-8a20-ed3fad8d69d4",
+            "id": "c847f05b-f39b-4c1a-85b4-1cbdcf8950f2",
             "source": {
-                "cell": "e82304cf-4ea9-46ec-b7a1-2d22961d10b4",
-                "port": "0cde881b-a818-4e06-89c6-9f6cbb3c4121"
+                "cell": "e117d7aa-3ad4-404e-bcee-7b6f186daeec",
+                "port": "fe34202c-b5bf-4363-8572-4b0217c49a80"
             },
             "target": {
-                "cell": "60565c16-79d2-4c0d-bae1-3ff4b8dcb671",
-                "port": "7ad0a58b-b2c8-4453-bea2-34be5478949f"
+                "cell": "9d3efdb3-f87f-4e78-a9c0-a9dc5805caa3",
+                "port": "247497f9-a0ff-48aa-ba8f-e12b35064613"
             },
-            "zIndex": 13
+            "zIndex": 7,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
+        },
+        {
+            "shape": "transition",
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": ""
+            },
+            "id": "5c73ddff-16f4-4bcd-a4d9-f366811d8c3a",
+            "source": {
+                "cell": "9d3efdb3-f87f-4e78-a9c0-a9dc5805caa3",
+                "port": "5c2655b9-d2cc-43aa-b76e-4deb6af11e02"
+            },
+            "target": {
+                "cell": "d502d11c-3c0b-4d15-99a5-480ef71af868",
+                "port": "b57cf501-9057-4bd8-b713-be28b4af0de4"
+            },
+            "zIndex": 8,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "shape": "probability-transition",
@@ -955,18 +692,19 @@ const test_data_a = {
                 "guard": "",
                 "sync": "",
                 "update": "",
-                "weight": 13
+                "weight": 12
             },
-            "id": "291c7891-f0d1-40a1-9a8b-376d9bed50e4",
+            "id": "de4750f4-b9f9-492c-89f7-6df3c9fb3a05",
             "source": {
-                "cell": "60565c16-79d2-4c0d-bae1-3ff4b8dcb671",
-                "port": "a623f099-1acc-4f58-a998-4a40dc1ccb70"
+                "cell": "d502d11c-3c0b-4d15-99a5-480ef71af868",
+                "port": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
             },
             "target": {
-                "cell": "0551cbd3-8a33-4b2d-82f3-f4bf2576f880",
-                "port": "45e866dc-757a-447d-87a5-f0cae9dbcfba"
+                "cell": "dbf27753-0dc0-4a7b-ad2c-71e163a93f43",
+                "port": "c1d22b2e-6108-43be-9687-7d63d60842d0"
             },
-            "zIndex": 14
+            "zIndex": 9,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
         },
         {
             "shape": "probability-transition",
@@ -986,39 +724,149 @@ const test_data_a = {
                 "guard": "",
                 "sync": "",
                 "update": "",
-                "weight": 38
+                "weight": 17
             },
-            "id": "5b7fed3a-05f8-4087-aa4f-6fa1ab64b353",
+            "id": "af6313c9-8705-4984-bdb6-23f2ed4612bb",
             "source": {
-                "cell": "60565c16-79d2-4c0d-bae1-3ff4b8dcb671",
-                "port": "9fec58db-8aee-4bd3-a550-ba5d4f88bf21"
+                "cell": "d502d11c-3c0b-4d15-99a5-480ef71af868",
+                "port": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
             },
             "target": {
-                "cell": "acdefd6e-d723-4a43-9e64-de3b4c654073",
-                "port": "45e866dc-757a-447d-87a5-f0cae9dbcfba"
+                "cell": "17fb3b36-3d15-4438-b536-82fb04667055",
+                "port": "c1d22b2e-6108-43be-9687-7d63d60842d0"
             },
-            "zIndex": 15
-        }
-    ],
-    "roots": [
+            "zIndex": 10,
+            "parent": "d42792c0-3369-4281-88ea-2dd1d47df34e"
+        },
         {
             "position": {
-                "x": 60,
-                "y": 320
+                "x": 109.99999999999682,
+                "y": 702.0000000000063
+            },
+            "size": {
+                "width": 980,
+                "height": 530
+            },
+            "view": "react-shape-view",
+            "shape": "state",
+            "id": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58",
+            "data": {
+                "title": "B",
+                "exp": "",
+                "inv": "",
+                "composite": true
+            },
+            "ports": {
+                "groups": {
+                    "top": {
+                        "position": "top",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "position": "right",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "bottom": {
+                        "position": "bottom",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "left": {
+                        "position": "left",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    }
+                },
+                "items": [
+                    {
+                        "group": "top",
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+                    },
+                    {
+                        "group": "right",
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
+                    },
+                    {
+                        "group": "bottom",
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+                    },
+                    {
+                        "group": "left",
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+                    }
+                ]
+            },
+            "zIndex": 11,
+            "children": [
+                "59752520-f097-44d0-a96e-8d563eded661",
+                "932a73bc-ee76-4e0d-a1c2-769f29c12407",
+                "ee63a1c0-f581-4b57-8253-4181cc9b34b1",
+                "f8c408ab-20dc-4c41-a486-35224d069364",
+                "bc3ef988-e21d-4dd4-a996-d89151cdf37e",
+                "54be5835-e8aa-455a-95f7-a788fca962af",
+                "29916c50-2e09-41c9-9e23-ff6d067e69ce",
+                "37363a6d-ae54-4184-ace6-13f87c89ccec",
+                "fd53a442-3f0f-4f05-aae6-02b0a10e94e7"
+            ]
+        },
+        {
+            "position": {
+                "x": 161,
+                "y": 894
             },
             "size": {
                 "width": 180,
                 "height": 86
             },
             "view": "react-shape-view",
-            "shape": "delay-unif",
-            "id": "dae1165e-9beb-4d85-bb34-9931c43a014a",
+            "shape": "state",
+            "id": "59752520-f097-44d0-a96e-8d563eded661",
             "data": {
-                "title": "NEW STATE",
+                "title": "B1",
                 "exp": "",
-                "variable": "c",
-                "a": 10,
-                "b": 20,
+                "inv": "",
                 "composite": false
             },
             "ports": {
@@ -1087,27 +935,491 @@ const test_data_a = {
                 "items": [
                     {
                         "group": "top",
-                        "id": "093f87d4-3a07-498b-9426-52dfd051189b"
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
                     },
                     {
                         "group": "right",
-                        "id": "8645606e-b683-42fe-9ac3-45a0e21b59f3"
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
                     },
                     {
                         "group": "bottom",
-                        "id": "d19ad04c-36ed-45d3-bbc3-4e2da68be6dc"
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
                     },
                     {
                         "group": "left",
-                        "id": "cdd718e5-d747-42ce-bd4d-e71ca351e984"
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
                     }
                 ]
             },
-            "zIndex": 1
+            "zIndex": 12,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "position": {
+                "x": 454,
+                "y": 927
+            },
+            "size": {
+                "width": 20,
+                "height": 20
+            },
+            "visible": true,
+            "shape": "probability-node",
+            "id": "932a73bc-ee76-4e0d-a1c2-769f29c12407",
+            "data": {},
+            "ports": {
+                "groups": {
+                    "top": {
+                        "position": "top",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "position": "right",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "bottom": {
+                        "position": "bottom",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "left": {
+                        "position": "left",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    }
+                },
+                "items": [
+                    {
+                        "group": "top",
+                        "id": "54e2d0ab-e2e6-4b20-8215-e2a50d4236a2"
+                    },
+                    {
+                        "group": "right",
+                        "id": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
+                    },
+                    {
+                        "group": "bottom",
+                        "id": "6855da3f-d57c-4ba2-939a-28882eb50ee4"
+                    },
+                    {
+                        "group": "left",
+                        "id": "b57cf501-9057-4bd8-b713-be28b4af0de4"
+                    }
+                ]
+            },
+            "zIndex": 13,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "position": {
+                "x": 574,
+                "y": 789
+            },
+            "size": {
+                "width": 180,
+                "height": 86
+            },
+            "view": "react-shape-view",
+            "shape": "state",
+            "id": "ee63a1c0-f581-4b57-8253-4181cc9b34b1",
+            "data": {
+                "title": "NEW STATE",
+                "exp": "",
+                "inv": "",
+                "composite": false
+            },
+            "ports": {
+                "groups": {
+                    "top": {
+                        "position": "top",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "position": "right",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "bottom": {
+                        "position": "bottom",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "left": {
+                        "position": "left",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    }
+                },
+                "items": [
+                    {
+                        "group": "top",
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+                    },
+                    {
+                        "group": "right",
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
+                    },
+                    {
+                        "group": "bottom",
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+                    },
+                    {
+                        "group": "left",
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+                    }
+                ]
+            },
+            "zIndex": 14,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "position": {
+                "x": 574,
+                "y": 1020
+            },
+            "size": {
+                "width": 180,
+                "height": 86
+            },
+            "view": "react-shape-view",
+            "shape": "state",
+            "id": "f8c408ab-20dc-4c41-a486-35224d069364",
+            "data": {
+                "title": "NEW STATE",
+                "exp": "",
+                "inv": "",
+                "composite": false
+            },
+            "ports": {
+                "groups": {
+                    "top": {
+                        "position": "top",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "position": "right",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "bottom": {
+                        "position": "bottom",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    },
+                    "left": {
+                        "position": "left",
+                        "attrs": {
+                            "circle": {
+                                "r": 8,
+                                "magnet": true,
+                                "stroke": "#5F95FF",
+                                "strokeWidth": 2,
+                                "fill": "#fff",
+                                "style": {
+                                    "visibility": "hidden"
+                                }
+                            }
+                        }
+                    }
+                },
+                "items": [
+                    {
+                        "group": "top",
+                        "id": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+                    },
+                    {
+                        "group": "right",
+                        "id": "fe34202c-b5bf-4363-8572-4b0217c49a80"
+                    },
+                    {
+                        "group": "bottom",
+                        "id": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+                    },
+                    {
+                        "group": "left",
+                        "id": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+                    }
+                ]
+            },
+            "zIndex": 15,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "transition",
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": ""
+            },
+            "id": "bc3ef988-e21d-4dd4-a996-d89151cdf37e",
+            "source": {
+                "cell": "59752520-f097-44d0-a96e-8d563eded661",
+                "port": "fe34202c-b5bf-4363-8572-4b0217c49a80"
+            },
+            "target": {
+                "cell": "932a73bc-ee76-4e0d-a1c2-769f29c12407",
+                "port": "b57cf501-9057-4bd8-b713-be28b4af0de4"
+            },
+            "zIndex": 16,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "probability-transition",
+            "attrs": {
+                "line": {
+                    "stroke": "#1890ff",
+                    "strokeDasharray": 5
+                }
+            },
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": "",
+                "weight": 12
+            },
+            "id": "fd53a442-3f0f-4f05-aae6-02b0a10e94e7",
+            "source": {
+                "cell": "932a73bc-ee76-4e0d-a1c2-769f29c12407",
+                "port": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
+            },
+            "target": {
+                "cell": "ee63a1c0-f581-4b57-8253-4181cc9b34b1",
+                "port": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+            },
+            "zIndex": 17,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "probability-transition",
+            "attrs": {
+                "line": {
+                    "stroke": "#1890ff",
+                    "strokeDasharray": 5
+                }
+            },
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": "",
+                "weight": 17
+            },
+            "id": "29916c50-2e09-41c9-9e23-ff6d067e69ce",
+            "source": {
+                "cell": "932a73bc-ee76-4e0d-a1c2-769f29c12407",
+                "port": "47ebf83a-d0ad-4441-b889-5191d351c8d1"
+            },
+            "target": {
+                "cell": "f8c408ab-20dc-4c41-a486-35224d069364",
+                "port": "c1d22b2e-6108-43be-9687-7d63d60842d0"
+            },
+            "zIndex": 18,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "transition",
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": ""
+            },
+            "id": "37363a6d-ae54-4184-ace6-13f87c89ccec",
+            "source": {
+                "cell": "ee63a1c0-f581-4b57-8253-4181cc9b34b1",
+                "port": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+            },
+            "target": {
+                "cell": "59752520-f097-44d0-a96e-8d563eded661",
+                "port": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+            },
+            "zIndex": 19,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "transition",
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": ""
+            },
+            "id": "54be5835-e8aa-455a-95f7-a788fca962af",
+            "source": {
+                "cell": "f8c408ab-20dc-4c41-a486-35224d069364",
+                "port": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+            },
+            "target": {
+                "cell": "59752520-f097-44d0-a96e-8d563eded661",
+                "port": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+            },
+            "zIndex": 20,
+            "parent": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58"
+        },
+        {
+            "shape": "transition",
+            "router": {
+                "name": "metro"
+            },
+            "connector": {
+                "name": "rounded"
+            },
+            "data": {
+                "guard": "",
+                "sync": "",
+                "update": ""
+            },
+            "id": "1cd45879-64d6-4618-a5af-0b78bf2e3eff",
+            "source": {
+                "cell": "d42792c0-3369-4281-88ea-2dd1d47df34e",
+                "port": "fc4e51a1-8e13-40a0-a618-22421f5bd5ac"
+            },
+            "target": {
+                "cell": "0cc8e00f-9a1e-49a4-8d12-2309100bfe58",
+                "port": "d8dc8b0f-0bc3-4e7c-be5d-a0c122023d41"
+            },
+            "zIndex": 21
         }
     ]
-}
-
-module.exports = {
-    test_data_a
 }
