@@ -21,46 +21,56 @@ system Process;
 \t</queries>
 </nta>`
 
-
 export const toUppaalXML = (datas) => {
-
-    let result1 = xml2js.xml2js(baseXML, {compact: true});
+    let result1 = xml2js.xml2js(baseXML, { compact: true })
     result1.nta.template = []
 
     for (const data of datas) {
-        let x = 0, y = 0;
+        let x = 0,
+            y = 0
         const tpl = {
-            name: {_text: data.name},
-            declaration: {_text: '// Place local declarations here.'},
+            name: { _text: data.name },
+            declaration: { _text: '// Place local declarations here.' },
             location: [],
             branchpoint: [],
             init: {},
-            transition: []
+            transition: [],
         }
         // Add location and branchpoint
         data.vertices.forEach((node_id) => {
-            x += 100;
-            y += 0;
+            x += 100
+            y += 0
             const node_data = data.data.get(node_id)
             const node_shape = node_data.shape
             // Insert node
             let obj = {
-                _attributes: {id: node_id, x: x, y: y},
+                _attributes: { id: node_id, x: x, y: y },
             }
             if (node_shape === 'location') {
-                const {title, invariant, rate_exp} = node_data.data
-                if (title !== "") {
+                const { title, invariant, rate_exp } = node_data.data
+                if (title !== '') {
                     obj.name = {
-                        _attributes: {x: x, y: y + 20,}, _text: title
+                        _attributes: { x: x, y: y + 20 },
+                        _text: title,
                     }
                 }
-                if (invariant !== "" || rate_exp !== "") {
+                if (invariant !== '' || rate_exp !== '') {
                     obj.label = []
-                    if (invariant !== "") {
-                        obj.label.push({_attributes: {kind: "invariant", x: x, y: y + 40}, _text: invariant})
+                    if (invariant !== '') {
+                        obj.label.push({
+                            _attributes: { kind: 'invariant', x: x, y: y + 40 },
+                            _text: invariant,
+                        })
                     }
-                    if (rate_exp !== "") {
-                        obj.label.push({_attributes: {kind: "exponentialrate", x: x, y: y + 60}, _text: `${rate_exp}`})
+                    if (rate_exp !== '') {
+                        obj.label.push({
+                            _attributes: {
+                                kind: 'exponentialrate',
+                                x: x,
+                                y: y + 60,
+                            },
+                            _text: `${rate_exp}`,
+                        })
                     }
                 }
                 tpl.location.push(obj)
@@ -73,51 +83,83 @@ export const toUppaalXML = (datas) => {
             edges.forEach((edge_id) => {
                 const edge_data = data.data.get(edge_id)
                 obj = {
-                    source: {_attributes: {ref: source_id}}, target: {_attributes: {ref: edge_data.target}}, label: []
+                    source: { _attributes: { ref: source_id } },
+                    target: { _attributes: { ref: edge_data.target } },
+                    label: [],
                 }
                 if (edge_data.shape === 'transition') {
-                    const {guard, sync, update} = edge_data.data
-                    if (guard !== "") {
+                    const { guard, sync, update } = edge_data.data
+                    if (guard !== '') {
                         obj.label.push({
-                            _attributes: {kind: "guard", x: x + 50, y: y + 10}, _text: guard
+                            _attributes: {
+                                kind: 'guard',
+                                x: x + 50,
+                                y: y + 10,
+                            },
+                            _text: guard,
                         })
                     }
-                    if (sync !== "") {
+                    if (sync !== '') {
                         obj.label.push({
-                            _attributes: {kind: "synchronisation", x: x + 50, y: y + 20}, _text: sync
+                            _attributes: {
+                                kind: 'synchronisation',
+                                x: x + 50,
+                                y: y + 20,
+                            },
+                            _text: sync,
                         })
                     }
-                    if (update !== "") {
+                    if (update !== '') {
                         obj.label.push({
-                            _attributes: {kind: "assignment", x: x + 50, y: y + 30}, _text: update
+                            _attributes: {
+                                kind: 'assignment',
+                                x: x + 50,
+                                y: y + 30,
+                            },
+                            _text: update,
                         })
                     }
                 } else if (edge_data.shape === 'prob-transition') {
-                    const {update, sync, weight} = edge_data.data
-                    if (weight !== "") {
+                    const { update, sync, weight } = edge_data.data
+                    if (weight !== '') {
                         obj.label.push({
-                            _attributes: {kind: "probability", x: x + 50, y: y + 10}, _text: `${weight}`
+                            _attributes: {
+                                kind: 'probability',
+                                x: x + 50,
+                                y: y + 10,
+                            },
+                            _text: `${weight}`,
                         })
                     }
-                    if (sync !== "") {
+                    if (sync !== '') {
                         obj.label.push({
-                            _attributes: {kind: "synchronisation", x: x + 50, y: y + 20}, _text: sync
+                            _attributes: {
+                                kind: 'synchronisation',
+                                x: x + 50,
+                                y: y + 20,
+                            },
+                            _text: sync,
                         })
                     }
-                    if (update !== "") {
+                    if (update !== '') {
                         obj.label.push({
-                            _attributes: {kind: "update", x: x + 50, y: y + 30}, _text: update
+                            _attributes: {
+                                kind: 'update',
+                                x: x + 50,
+                                y: y + 30,
+                            },
+                            _text: update,
                         })
                     }
                 }
                 tpl.transition.push(obj)
             })
         })
-        tpl.init = {_attributes: {ref: data.root}}
+        tpl.init = { _attributes: { ref: data.root } }
 
         result1.nta.template.push(tpl)
     }
 
-    const newXml = xml2js.js2xml(result1, {compact: true})
+    const newXml = xml2js.js2xml(result1, { compact: true })
     return newXml
 }

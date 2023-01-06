@@ -21,7 +21,7 @@
 .app-sidebar {
     position: relative;
     width: 250px;
-    margin: 20px
+    margin: 20px;
 }
 
 .node {
@@ -41,7 +41,6 @@
 .node.child {
     border-left: 4px solid #39c5bb;
 }
-
 
 .node hr {
     height: 1px;
