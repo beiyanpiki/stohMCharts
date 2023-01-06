@@ -29,12 +29,8 @@
     },
     "eslintConfig": {
         "extends": [
-            "react-app",
-            "prettier"
+            "react-app"
         ]
-    },
-    "rules": {
-        "no-unused-vars": "off"
     },
     "browserslist": {
         "production": [
@@ -49,7 +45,6 @@
         ]
     },
     "devDependencies": {
-        "eslint-config-prettier": "^8.6.0",
         "husky": "^8.0.3",
         "lint-staged": "^13.1.0",
         "prettier": "2.8.1"
