@@ -1,15 +1,15 @@
 {
-  "main.css": "/stohMCharts/static/css/main.288be31f.chunk.css",
-  "main.js": "/stohMCharts/static/js/main.7e8a1d48.chunk.js",
-  "main.js.map": "/stohMCharts/static/js/main.7e8a1d48.chunk.js.map",
-  "static/css/1.6c513b73.chunk.css": "/stohMCharts/static/css/1.6c513b73.chunk.css",
-  "static/js/1.7bec4c3a.chunk.js": "/stohMCharts/static/js/1.7bec4c3a.chunk.js",
-  "static/js/1.7bec4c3a.chunk.js.map": "/stohMCharts/static/js/1.7bec4c3a.chunk.js.map",
-  "runtime~main.js": "/stohMCharts/static/js/runtime~main.782216a8.js",
-  "runtime~main.js.map": "/stohMCharts/static/js/runtime~main.782216a8.js.map",
-  "static/css/main.288be31f.chunk.css.map": "/stohMCharts/static/css/main.288be31f.chunk.css.map",
-  "static/css/1.6c513b73.chunk.css.map": "/stohMCharts/static/css/1.6c513b73.chunk.css.map",
+  "main.css": "/stohMCharts/static/css/main.93b14d44.chunk.css",
+  "main.js": "/stohMCharts/static/js/main.13984014.chunk.js",
+  "main.js.map": "/stohMCharts/static/js/main.13984014.chunk.js.map",
+  "runtime~main.js": "/stohMCharts/static/js/runtime~main.9f9df0c1.js",
+  "runtime~main.js.map": "/stohMCharts/static/js/runtime~main.9f9df0c1.js.map",
+  "static/css/2.f5b38600.chunk.css": "/stohMCharts/static/css/2.f5b38600.chunk.css",
+  "static/js/2.fe051746.chunk.js": "/stohMCharts/static/js/2.fe051746.chunk.js",
+  "static/js/2.fe051746.chunk.js.map": "/stohMCharts/static/js/2.fe051746.chunk.js.map",
   "index.html": "/stohMCharts/index.html",
-  "precache-manifest.6a10fdfb31561c6a80e8ee469df0cb95.js": "/stohMCharts/precache-manifest.6a10fdfb31561c6a80e8ee469df0cb95.js",
-  "service-worker.js": "/stohMCharts/service-worker.js"
+  "precache-manifest.9483a3fdf2f1decab36b39952de8cee2.js": "/stohMCharts/precache-manifest.9483a3fdf2f1decab36b39952de8cee2.js",
+  "service-worker.js": "/stohMCharts/service-worker.js",
+  "static/css/2.f5b38600.chunk.css.map": "/stohMCharts/static/css/2.f5b38600.chunk.css.map",
+  "static/css/main.93b14d44.chunk.css.map": "/stohMCharts/static/css/main.93b14d44.chunk.css.map"
 }
