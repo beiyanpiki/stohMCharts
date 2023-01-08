@@ -30,6 +30,7 @@ import { toUppaalXML } from './utils'
 import { Button, Dropdown, Space, Upload } from 'antd'
 import { GithubFilled, DownOutlined } from '@ant-design/icons'
 import { Base64 } from 'js-base64'
+import Title from './Title'
 
 const ports = {
     groups: {
@@ -219,6 +220,8 @@ const Layout = () => {
         data: {},
     })
     const [G, setG] = useState(null)
+
+    const [title, setTitle] = useState('New System')
 
     useEffect(() => {
         // Init graph
@@ -531,6 +534,12 @@ const Layout = () => {
 
                     <div className="topbar-left-menu">
                         <Space wrap size="middle">
+                            <Title
+                                title={title}
+                                onTitleChange={(newTitle) => {
+                                    setTitle(newTitle)
+                                }}
+                            />
                             {/* New File */}
                             <Button
                                 size="small"
@@ -546,11 +555,16 @@ const Layout = () => {
                                 showUploadList={false}
                                 beforeUpload={(file) => {
                                     return new Promise((resolve) => {
+                                        const filename = file.name.substring(
+                                            0,
+                                            file.name.lastIndexOf('.')
+                                        )
                                         const reader = new FileReader()
                                         reader.readAsText(file)
                                         reader.onload = () => {
                                             G.clearCells()
                                             loadData(reader.result)
+                                            setTitle(filename)
                                         }
                                     })
                                 }}
@@ -563,7 +577,7 @@ const Layout = () => {
                                 onClick={() => {
                                     const graph_data = G.toJSON()
                                     download(
-                                        'output.smc',
+                                        `${title}.smc`,
                                         JSON.stringify(graph_data)
                                     )
                                 }}
@@ -575,9 +589,9 @@ const Layout = () => {
                                 size="small"
                                 onClick={() => {
                                     const cells = G.toJSON()
-                                    const output = convert(cells)
+                                    const output = convert(title, cells)
                                     const xml = toUppaalXML(output)
-                                    download('output.xml', xml, false)
+                                    download(`${title}.xml`, xml, false)
                                 }}
                             >
                                 Export

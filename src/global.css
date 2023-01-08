@@ -1,3 +1,7 @@
+* {
+    font-family: v-sans, v-mono, other-fallbacks;
+}
+
 .topbar {
     height: 48px;
     display: flex;

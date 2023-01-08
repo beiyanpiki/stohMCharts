@@ -251,7 +251,7 @@ const convertNode = (node_id, vis, G, A) => {
     })
 }
 
-export const convert = (data) => {
+export const convert = (system_name, data) => {
     let template = []
     let variable = []
     let chan = []
@@ -289,7 +289,7 @@ export const convert = (data) => {
     }
 
     template.push({
-        name: 'overall',
+        name: system_name,
         vertices: composite_A.vertices,
         data: composite_A.data,
         adjList: composite_A.adjList,
