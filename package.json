@@ -4,6 +4,7 @@
     "private": true,
     "homepage": "https://beiyanpiki.github.io/stohMCharts",
     "dependencies": {
+        "@ant-design/icons": "^4.8.0",
         "@antv/x6": "^2.1.4",
         "@antv/x6-plugin-clipboard": "^2.1.3",
         "@antv/x6-plugin-dnd": "^2.0.3",

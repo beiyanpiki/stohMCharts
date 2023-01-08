@@ -42,7 +42,7 @@ const StateInfo = ({ state, onChange }) => {
             >
                 <Checkbox>Composite</Checkbox>
             </Form.Item>
-            <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
+            <Form.Item wrapperCol={{ offset: 4, span: 20 }}>
                 <Button type="primary" htmlType="submit" block>
                     Apply
                 </Button>

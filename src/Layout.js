@@ -27,7 +27,8 @@ import {
 } from './sidebar'
 import { convert, test_data_a } from './algorithm'
 import { toUppaalXML } from './utils'
-
+import { Button, Dropdown, Space } from 'antd'
+import { GithubFilled, DownOutlined } from '@ant-design/icons'
 const ports = {
     groups: {
         top: {
@@ -409,7 +410,6 @@ const Layout = () => {
                     title: 'Normal(a, u)',
                 },
                 { name: 'PROBABILITY_NODE', title: 'Probability' },
-                { name: 'INITIAL_NODE', title: 'Initial Node' },
             ],
         })
         refStencilContainer.current.appendChild(stencil.container)
@@ -482,20 +482,12 @@ const Layout = () => {
             data: {},
             ports: { ...ports },
         })
-        const r7 = graph.createNode({
-            shape: 'initial-node',
-            x: 180,
-            y: 40,
-            data: {},
-            ports: { ...ports },
-        })
         stencil.load([r1], 'STATE')
         stencil.load([r2], 'DELAY_EXP')
         stencil.load([r3], 'DELAY_UNIF')
         stencil.load([r4], 'DELAY')
         stencil.load([r5], 'DELAY_NORMAL')
         stencil.load([r6], 'PROBABILITY_NODE')
-        stencil.load([r7], 'INITIAL_NODE')
 
         // Init node&edge action
         graph.on('cell:click', ({ cell }) => {
@@ -510,291 +502,359 @@ const Layout = () => {
     }, [refContainer, refStencilContainer])
 
     return (
-        <div className="app">
-            <div className="app-stencil" ref={refStencilContainer} />
-            <div className="app-content" ref={refContainer} />
-            <div className="app-sidebar">
-                {(() => {
-                    switch (state.shape) {
-                        case 'state':
-                            return (
-                                <StateInfo
-                                    state={{
-                                        id: state.id,
-                                        title: state.data.title,
-                                        exp: state.data.exp,
-                                        inv: state.data.inv,
-                                        composite: state.data.composite,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+        <>
+            <div className="topbar">
+                <div className="topbar-left">
+                    <div className="topbar-left-title">
+                        <Button type="text" size="small">
+                            <b>StohM Charts</b>
+                        </Button>
+                    </div>
+
+                    <div className="topbar-left-menu">
+                        <Space wrap size="middle">
+                            <Button size="small" type="primary">
+                                New
+                            </Button>
+                            <Button size="small">Load</Button>
+                            <Button size="small">Save</Button>
+                            <Button size="small">Export</Button>
+                            <Dropdown
+                                menu={{
+                                    items: [{ key: '1', label: '123' }],
+                                    onClick: (e) => {
+                                        console.log(e)
+                                    },
+                                }}
+                            >
+                                <Space>
+                                    <Button size="small">
+                                        Examples
+                                        <DownOutlined />
+                                    </Button>
+                                </Space>
+                            </Dropdown>
+                        </Space>
+                    </div>
+                </div>
+                <div className="topbar-right">
+                    <Button
+                        type="text"
+                        size="small"
+                        icon={<GithubFilled />}
+                        href="https://github.com/beiyanpiki/stohMCharts"
+                        target="__blank"
+                    />
+                </div>
+            </div>
+            <div className="app">
+                <div className="app-stencil" ref={refStencilContainer} />
+                <div className="app-content" ref={refContainer} />
+                <div className="app-sidebar">
+                    {(() => {
+                        switch (state.shape) {
+                            case 'state':
+                                return (
+                                    <StateInfo
+                                        state={{
+                                            id: state.id,
+                                            title: state.data.title,
+                                            exp: state.data.exp,
+                                            inv: state.data.inv,
+                                            composite: state.data.composite,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    title: newState.title,
+                                                    exp: newState.exp,
+                                                    inv: newState.inv,
+                                                    composite:
+                                                        newState.composite,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 title: newState.title,
                                                 exp: newState.exp,
                                                 inv: newState.inv,
                                                 composite: newState.composite,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            title: newState.title,
-                                            exp: newState.exp,
-                                            inv: newState.inv,
-                                            composite: newState.composite,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'delay-exp':
-                            return (
-                                <DelayExpStateInfo
-                                    state={{
-                                        id: state.id,
-                                        title: state.data.title,
-                                        exp: state.data.exp,
-                                        variable: state.data.variable,
-                                        rate: state.data.rate,
-                                        composite: state.data.composite,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            data: {
-                                                shape: state.shape,
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'delay-exp':
+                                return (
+                                    <DelayExpStateInfo
+                                        state={{
+                                            id: state.id,
+                                            title: state.data.title,
+                                            exp: state.data.exp,
+                                            variable: state.data.variable,
+                                            rate: state.data.rate,
+                                            composite: state.data.composite,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                data: {
+                                                    shape: state.shape,
+                                                    title: newState.title,
+                                                    exp: newState.exp,
+                                                    variable: newState.variable,
+                                                    rate: newState.rate,
+                                                    composite:
+                                                        newState.composite,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 title: newState.title,
                                                 exp: newState.exp,
                                                 variable: newState.variable,
                                                 rate: newState.rate,
                                                 composite: newState.composite,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            title: newState.title,
-                                            exp: newState.exp,
-                                            variable: newState.variable,
-                                            rate: newState.rate,
-                                            composite: newState.composite,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'delay-unif':
-                            return (
-                                <DelayUnifStateInfo
-                                    state={{
-                                        id: state.id,
-                                        title: state.data.title,
-                                        exp: state.data.exp,
-                                        variable: state.data.variable,
-                                        a: state.data.a,
-                                        b: state.data.b,
-                                        composite: state.data.composite,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'delay-unif':
+                                return (
+                                    <DelayUnifStateInfo
+                                        state={{
+                                            id: state.id,
+                                            title: state.data.title,
+                                            exp: state.data.exp,
+                                            variable: state.data.variable,
+                                            a: state.data.a,
+                                            b: state.data.b,
+                                            composite: state.data.composite,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    title: newState.title,
+                                                    exp: newState.exp,
+                                                    variable: newState.variable,
+                                                    a: newState.a,
+                                                    b: newState.b,
+                                                    composite:
+                                                        newState.composite,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 title: newState.title,
                                                 exp: newState.exp,
                                                 variable: newState.variable,
                                                 a: newState.a,
                                                 b: newState.b,
                                                 composite: newState.composite,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            title: newState.title,
-                                            exp: newState.exp,
-                                            variable: newState.variable,
-                                            a: newState.a,
-                                            b: newState.b,
-                                            composite: newState.composite,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'delay':
-                            return (
-                                <DelayStateInfo
-                                    state={{
-                                        id: state.id,
-                                        title: state.data.title,
-                                        exp: state.data.exp,
-                                        variable: state.data.variable,
-                                        t: state.data.t,
-                                        composite: state.data.composite,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'delay':
+                                return (
+                                    <DelayStateInfo
+                                        state={{
+                                            id: state.id,
+                                            title: state.data.title,
+                                            exp: state.data.exp,
+                                            variable: state.data.variable,
+                                            t: state.data.t,
+                                            composite: state.data.composite,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    title: newState.title,
+                                                    exp: newState.exp,
+                                                    variable: newState.variable,
+                                                    t: newState.t,
+                                                    composite:
+                                                        newState.composite,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 title: newState.title,
                                                 exp: newState.exp,
                                                 variable: newState.variable,
                                                 t: newState.t,
                                                 composite: newState.composite,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            title: newState.title,
-                                            exp: newState.exp,
-                                            variable: newState.variable,
-                                            t: newState.t,
-                                            composite: newState.composite,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'delay-normal':
-                            return (
-                                <DelayNormalStateInfo
-                                    state={{
-                                        id: state.id,
-                                        title: state.data.title,
-                                        inv: state.data.inv,
-                                        variable: state.data.variable,
-                                        a: state.data.a,
-                                        u: state.data.u,
-                                        composite: state.data.composite,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'delay-normal':
+                                return (
+                                    <DelayNormalStateInfo
+                                        state={{
+                                            id: state.id,
+                                            title: state.data.title,
+                                            inv: state.data.inv,
+                                            variable: state.data.variable,
+                                            a: state.data.a,
+                                            u: state.data.u,
+                                            composite: state.data.composite,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    title: newState.title,
+                                                    inv: newState.inv,
+                                                    variable: newState.variable,
+                                                    a: newState.a,
+                                                    u: newState.u,
+                                                    composite:
+                                                        newState.composite,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 title: newState.title,
                                                 inv: newState.inv,
                                                 variable: newState.variable,
                                                 a: newState.a,
                                                 u: newState.u,
                                                 composite: newState.composite,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            title: newState.title,
-                                            inv: newState.inv,
-                                            variable: newState.variable,
-                                            a: newState.a,
-                                            u: newState.u,
-                                            composite: newState.composite,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'transition':
-                            return (
-                                <TransitionSidebar
-                                    state={{
-                                        id: state.id,
-                                        guard: state.data.guard,
-                                        sync: state.data.sync,
-                                        update: state.data.update,
-                                    }}
-                                    onChange={(newState) => {
-                                        console.log(newState)
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'transition':
+                                return (
+                                    <TransitionSidebar
+                                        state={{
+                                            id: state.id,
+                                            guard: state.data.guard,
+                                            sync: state.data.sync,
+                                            update: state.data.update,
+                                        }}
+                                        onChange={(newState) => {
+                                            console.log(newState)
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    guard: newState.guard,
+                                                    sync: newState.sync,
+                                                    update: newState.update,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 guard: newState.guard,
                                                 sync: newState.sync,
                                                 update: newState.update,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            guard: newState.guard,
-                                            sync: newState.sync,
-                                            update: newState.update,
-                                        })
-                                    }}
-                                    onSwitch={() => {
-                                        setState({
-                                            id: state.id,
-                                            shape: 'probability-transition',
-                                            data: {
+                                            })
+                                        }}
+                                        onSwitch={() => {
+                                            setState({
+                                                id: state.id,
+                                                shape: 'probability-transition',
+                                                data: {
+                                                    sync: '',
+                                                    update: '',
+                                                    weight: 0,
+                                                },
+                                            })
+                                            const cell = G.getCellById(state.id)
+                                            cell.prop(
+                                                'shape',
+                                                'probability-transition'
+                                            )
+                                            cell.attr('line/stroke', '#1890ff')
+                                            cell.attr('line/strokeDasharray', 5)
+                                            cell.setData({
                                                 sync: '',
                                                 update: '',
                                                 weight: 0,
-                                            },
-                                        })
-                                        const cell = G.getCellById(state.id)
-                                        cell.prop(
-                                            'shape',
-                                            'probability-transition'
-                                        )
-                                        cell.attr('line/stroke', '#1890ff')
-                                        cell.attr('line/strokeDasharray', 5)
-                                        cell.setData({
-                                            sync: '',
-                                            update: '',
-                                            weight: 0,
-                                        })
-                                    }}
-                                />
-                            )
-                        case 'probability-transition':
-                            return (
-                                <ProbabilityTransitionSidebar
-                                    state={{
-                                        id: state.id,
-                                        weight: state.data.weight,
-                                        sync: state.data.sync,
-                                        update: state.data.update,
-                                    }}
-                                    onChange={(newState) => {
-                                        setState({
-                                            id: newState.id,
-                                            shape: state.shape,
-                                            data: {
+                                            })
+                                        }}
+                                    />
+                                )
+                            case 'probability-transition':
+                                return (
+                                    <ProbabilityTransitionSidebar
+                                        state={{
+                                            id: state.id,
+                                            weight: state.data.weight,
+                                            sync: state.data.sync,
+                                            update: state.data.update,
+                                        }}
+                                        onChange={(newState) => {
+                                            setState({
+                                                id: newState.id,
+                                                shape: state.shape,
+                                                data: {
+                                                    weight: newState.weight,
+                                                    sync: newState.sync,
+                                                    update: newState.update,
+                                                },
+                                            })
+                                            const cell = G.getCellById(
+                                                newState.id
+                                            )
+                                            cell.setData({
                                                 weight: newState.weight,
                                                 sync: newState.sync,
                                                 update: newState.update,
-                                            },
-                                        })
-                                        const cell = G.getCellById(newState.id)
-                                        cell.setData({
-                                            weight: newState.weight,
-                                            sync: newState.sync,
-                                            update: newState.update,
-                                        })
-                                    }}
-                                    onSwitch={() => {
-                                        setState({
-                                            id: state.id,
-                                            shape: 'transition',
-                                            data: {
+                                            })
+                                        }}
+                                        onSwitch={() => {
+                                            setState({
+                                                id: state.id,
+                                                shape: 'transition',
+                                                data: {
+                                                    sync: '',
+                                                    update: '',
+                                                    guard: '',
+                                                },
+                                            })
+                                            const cell = G.getCellById(state.id)
+                                            cell.prop('shape', 'transition')
+                                            cell.attr('line/stroke', '#faad14')
+                                            cell.attr(
+                                                'line/strokeDasharray',
+                                                null
+                                            )
+                                            cell.setData({
                                                 sync: '',
                                                 update: '',
-                                                guard: '',
-                                            },
-                                        })
-                                        const cell = G.getCellById(state.id)
-                                        cell.prop('shape', 'transition')
-                                        cell.attr('line/stroke', '#faad14')
-                                        cell.attr('line/strokeDasharray', null)
-                                        cell.setData({
-                                            sync: '',
-                                            update: '',
-                                            weight: 0,
-                                        })
-                                    }}
-                                />
-                            )
-                        default:
-                            return <div>Select cell to edit</div>
-                    }
-                })()}
+                                                weight: 0,
+                                            })
+                                        }}
+                                    />
+                                )
+                            default:
+                                return <div></div>
+                        }
+                    })()}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
