@@ -21,21 +21,25 @@ class Graph {
 
     getRoot() {
         const cnt = new Map()
+
         this.vertices.forEach((v) => {
             cnt.set(v, 0)
         })
-        for (let source in this.adjList) {
-            const edges = this.adjList[source]
+
+        console.log(this.adjList.values())
+        for (let edges of this.adjList.values()) {
             edges.forEach((edge_id) => {
                 const target = this.data.get(edge_id).target
                 if (cnt.has(target)) {
                     cnt.set(target, cnt.get(target) + 1)
                 }
+                console.log(cnt.get(target))
             })
         }
         let min_times = 9999999,
             min_node = ''
         for (let [node_id, times] of cnt) {
+            console.log(node_id, times)
             if (times <= min_times) {
                 min_times = times
                 min_node = node_id
