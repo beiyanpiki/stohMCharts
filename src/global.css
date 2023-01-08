@@ -37,7 +37,7 @@
     display: flex;
     padding: 0;
     font-family: sans-serif;
-    height: 99vh;
+    height: calc(100vh - 48px);
 }
 
 .app-stencil {

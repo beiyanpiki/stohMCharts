@@ -270,7 +270,10 @@ export const convert = (data) => {
         composite_A = new Graph()
     composite_G.loadData(composite_nodes, composite_edges)
     let vis = new Map()
-    convertNode(composite_G.root, vis, composite_G, composite_A)
+
+    if (composite_G.vertices.length > 0) {
+        convertNode(composite_G.root, vis, composite_G, composite_A)
+    }
 
     template.push({
         name: 'overall',

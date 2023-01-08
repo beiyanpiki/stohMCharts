@@ -27,8 +27,10 @@ import {
 } from './sidebar'
 import { convert, test_data_a } from './algorithm'
 import { toUppaalXML } from './utils'
-import { Button, Dropdown, Space } from 'antd'
+import { Button, Dropdown, Space, Upload } from 'antd'
 import { GithubFilled, DownOutlined } from '@ant-design/icons'
+import { Base64 } from 'js-base64'
+
 const ports = {
     groups: {
         top: {
@@ -501,6 +503,35 @@ const Layout = () => {
         setG(graph)
     }, [refContainer, refStencilContainer])
 
+    const removeAllCells = () => {
+        G.clearCells()
+    }
+
+    const download = (filename, content, b64 = true) => {
+        if (b64) {
+            content = Base64.encode(content)
+        }
+
+        const downfile = new File([content], filename, {
+            type: 'text/plain',
+        })
+        const tmpLink = document.createElement('a')
+        const objectUrl = URL.createObjectURL(downfile)
+        tmpLink.href = objectUrl
+        tmpLink.download = downfile.name
+        document.body.appendChild(tmpLink)
+        tmpLink.click()
+
+        document.body.removeChild(tmpLink)
+        URL.revokeObjectURL(objectUrl)
+    }
+
+    const loadData = (content) => {
+        const raw = Base64.decode(content)
+        const raw_obj = JSON.parse(raw)
+        G.fromJSON(raw_obj)
+    }
+
     return (
         <>
             <div className="topbar">
@@ -513,26 +544,69 @@ const Layout = () => {
 
                     <div className="topbar-left-menu">
                         <Space wrap size="middle">
-                            <Button size="small" type="primary">
+                            {/* New File */}
+                            <Button
+                                size="small"
+                                type="primary"
+                                onClick={() => {
+                                    removeAllCells()
+                                }}
+                            >
                                 New
                             </Button>
-                            <Button size="small">Load</Button>
-                            <Button size="small">Save</Button>
-                            <Button size="small">Export</Button>
+                            {/* Load File */}
+                            <Upload
+                                showUploadList={false}
+                                beforeUpload={(file) => {
+                                    return new Promise((resolve) => {
+                                        const reader = new FileReader()
+                                        reader.readAsText(file)
+                                        reader.onload = () => {
+                                            G.clearCells()
+                                            loadData(reader.result)
+                                        }
+                                    })
+                                }}
+                            >
+                                <Button size="small">Load</Button>
+                            </Upload>
+                            {/* Save File */}
+                            <Button
+                                size="small"
+                                onClick={() => {
+                                    const graph_data = G.toJSON()
+                                    download(
+                                        'output.smc',
+                                        JSON.stringify(graph_data)
+                                    )
+                                }}
+                            >
+                                Save
+                            </Button>
+                            {/* Export to Uppaal xml */}
+                            <Button
+                                size="small"
+                                onClick={() => {
+                                    const cells = G.toJSON()
+                                    const output = convert(cells)
+                                    const xml = toUppaalXML(output)
+                                    download('output.xml', xml, false)
+                                }}
+                            >
+                                Export
+                            </Button>
                             <Dropdown
                                 menu={{
                                     items: [{ key: '1', label: '123' }],
-                                    onClick: (e) => {
-                                        console.log(e)
+                                    onClick: ({ key }) => {
+                                        console.log(key)
                                     },
                                 }}
                             >
-                                <Space>
-                                    <Button size="small">
-                                        Examples
-                                        <DownOutlined />
-                                    </Button>
-                                </Space>
+                                <Button size="small">
+                                    Examples
+                                    <DownOutlined />
+                                </Button>
                             </Dropdown>
                         </Space>
                     </div>
