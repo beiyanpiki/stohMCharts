@@ -1,15 +1,15 @@
 {
-  "main.css": "/stohMCharts/static/css/main.93b14d44.chunk.css",
-  "main.js": "/stohMCharts/static/js/main.13984014.chunk.js",
-  "main.js.map": "/stohMCharts/static/js/main.13984014.chunk.js.map",
+  "main.css": "/stohMCharts/static/css/main.87744f9b.chunk.css",
+  "main.js": "/stohMCharts/static/js/main.75af87b8.chunk.js",
+  "main.js.map": "/stohMCharts/static/js/main.75af87b8.chunk.js.map",
   "runtime~main.js": "/stohMCharts/static/js/runtime~main.9f9df0c1.js",
   "runtime~main.js.map": "/stohMCharts/static/js/runtime~main.9f9df0c1.js.map",
   "static/css/2.f5b38600.chunk.css": "/stohMCharts/static/css/2.f5b38600.chunk.css",
-  "static/js/2.fe051746.chunk.js": "/stohMCharts/static/js/2.fe051746.chunk.js",
-  "static/js/2.fe051746.chunk.js.map": "/stohMCharts/static/js/2.fe051746.chunk.js.map",
+  "static/js/2.504810d1.chunk.js": "/stohMCharts/static/js/2.504810d1.chunk.js",
+  "static/js/2.504810d1.chunk.js.map": "/stohMCharts/static/js/2.504810d1.chunk.js.map",
   "index.html": "/stohMCharts/index.html",
-  "precache-manifest.9483a3fdf2f1decab36b39952de8cee2.js": "/stohMCharts/precache-manifest.9483a3fdf2f1decab36b39952de8cee2.js",
+  "precache-manifest.39229bd1fed85252ad8a7b388ceebd09.js": "/stohMCharts/precache-manifest.39229bd1fed85252ad8a7b388ceebd09.js",
   "service-worker.js": "/stohMCharts/service-worker.js",
   "static/css/2.f5b38600.chunk.css.map": "/stohMCharts/static/css/2.f5b38600.chunk.css.map",
-  "static/css/main.93b14d44.chunk.css.map": "/stohMCharts/static/css/main.93b14d44.chunk.css.map"
+  "static/css/main.87744f9b.chunk.css.map": "/stohMCharts/static/css/main.87744f9b.chunk.css.map"
 }
