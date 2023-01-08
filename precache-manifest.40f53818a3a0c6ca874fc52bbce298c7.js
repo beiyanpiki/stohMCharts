@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "60974b4532c9834e6936",
-    "url": "/stohMCharts/static/css/main.b165b5ed.chunk.css"
+    "revision": "7ae9f1033c53c52b0b2a",
+    "url": "/stohMCharts/static/css/main.4c72a3ac.chunk.css"
   },
   {
-    "revision": "60974b4532c9834e6936",
+    "revision": "7ae9f1033c53c52b0b2a",
     "url": "/stohMCharts/static/js/main.2ec48af5.chunk.js"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/stohMCharts/static/media/FiraCode-Regular.ea8e3416.woff2"
   },
   {
-    "revision": "b2d6645f3eca16e8bb1598d04cf5d421",
+    "revision": "2bd5d5abfd9c569f13a3a3c87afd50fb",
     "url": "/stohMCharts/index.html"
   }
 ];

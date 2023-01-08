@@ -1,5 +1,5 @@
 {
-  "main.css": "/stohMCharts/static/css/main.b165b5ed.chunk.css",
+  "main.css": "/stohMCharts/static/css/main.4c72a3ac.chunk.css",
   "main.js": "/stohMCharts/static/js/main.2ec48af5.chunk.js",
   "main.js.map": "/stohMCharts/static/js/main.2ec48af5.chunk.js.map",
   "runtime~main.js": "/stohMCharts/static/js/runtime~main.9f9df0c1.js",
@@ -8,10 +8,10 @@
   "static/js/2.230962cc.chunk.js": "/stohMCharts/static/js/2.230962cc.chunk.js",
   "static/js/2.230962cc.chunk.js.map": "/stohMCharts/static/js/2.230962cc.chunk.js.map",
   "index.html": "/stohMCharts/index.html",
-  "precache-manifest.8dc0388479ed14d091b9cea36ab5cfc0.js": "/stohMCharts/precache-manifest.8dc0388479ed14d091b9cea36ab5cfc0.js",
+  "precache-manifest.40f53818a3a0c6ca874fc52bbce298c7.js": "/stohMCharts/precache-manifest.40f53818a3a0c6ca874fc52bbce298c7.js",
   "service-worker.js": "/stohMCharts/service-worker.js",
   "static/css/2.98f289b5.chunk.css.map": "/stohMCharts/static/css/2.98f289b5.chunk.css.map",
-  "static/css/main.b165b5ed.chunk.css.map": "/stohMCharts/static/css/main.b165b5ed.chunk.css.map",
+  "static/css/main.4c72a3ac.chunk.css.map": "/stohMCharts/static/css/main.4c72a3ac.chunk.css.map",
   "static/media/FiraCode.css": "/stohMCharts/static/media/FiraCode-Regular.ea8e3416.woff2",
   "static/media/Lato.css": "/stohMCharts/static/media/LatoLatin-Semibold.008763cc.woff2"
 }
