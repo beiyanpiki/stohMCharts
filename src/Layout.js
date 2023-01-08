@@ -363,19 +363,6 @@ const Layout = () => {
             }
         })
 
-        graph.on('blank:contextmenu', () => {
-            graph.clearCells()
-            graph.fromJSON(test_data_a)
-        })
-
-        graph.on('blank:dblclick', () => {
-            const cells = graph.toJSON()
-
-            const output = convert(cells)
-            const xml = toUppaalXML(output)
-            console.log(xml)
-        })
-
         // Init node ports
         const showPorts = (ports, show) => {
             for (let i = 0, len = ports.length; i < len; i = i + 1) {
@@ -597,9 +584,14 @@ const Layout = () => {
                             </Button>
                             <Dropdown
                                 menu={{
-                                    items: [{ key: '1', label: '123' }],
+                                    items: [{ key: '1', label: 'Case 1' }],
                                     onClick: ({ key }) => {
-                                        console.log(key)
+                                        let data
+                                        if (key === '1') {
+                                            data = test_data_a
+                                        }
+                                        G.clearCells()
+                                        G.fromJSON(data)
                                     },
                                 }}
                             >

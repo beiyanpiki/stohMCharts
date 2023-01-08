@@ -6,6 +6,8 @@ class Graph {
         this.data = new Map() // for node, {id: data, shape}; for edge, {id: data, shape, target}
         this.adjList = new Map() // {id: [edge_id1, edge_id2]}
         this.root = null
+        this.variable = []
+        this.chan = []
     }
 
     add_vertices(id, shape, data) {
@@ -26,20 +28,17 @@ class Graph {
             cnt.set(v, 0)
         })
 
-        console.log(this.adjList.values())
         for (let edges of this.adjList.values()) {
             edges.forEach((edge_id) => {
                 const target = this.data.get(edge_id).target
                 if (cnt.has(target)) {
                     cnt.set(target, cnt.get(target) + 1)
                 }
-                console.log(cnt.get(target))
             })
         }
         let min_times = 9999999,
             min_node = ''
         for (let [node_id, times] of cnt) {
-            console.log(node_id, times)
             if (times <= min_times) {
                 min_times = times
                 min_node = node_id
@@ -50,9 +49,17 @@ class Graph {
 
     loadData(nodes, edges) {
         nodes.forEach(({ id, shape, data }) => {
+            if ('variable' in data) {
+                this.variable.push(data.variable)
+            }
             this.add_vertices(id, shape, data)
         })
         edges.forEach(({ id, shape, data, source, target }) => {
+            if ('sync' in data && data.sync !== '') {
+                const action = data.sync
+                // action! => action
+                this.chan.push(action.substr(0, action.length - 1))
+            }
             this.add_edge(id, shape, data, source.cell, target.cell)
         })
         this.getRoot()
@@ -246,6 +253,8 @@ const convertNode = (node_id, vis, G, A) => {
 
 export const convert = (data) => {
     let template = []
+    let variable = []
+    let chan = []
 
     let cell_map = new Map()
     data.cells.forEach((cell) => {
@@ -286,6 +295,8 @@ export const convert = (data) => {
         adjList: composite_A.adjList,
         root: composite_G.root,
     })
+    variable = variable.concat(composite_G.variable)
+    chan = chan.concat(composite_G.chan)
 
     // Find all child node
     for (let composite_node of composite_nodes) {
@@ -319,7 +330,17 @@ export const convert = (data) => {
             data: sub_A.data,
             adjList: sub_A.adjList,
             root: sub_G.root,
+            variable: Array.from(new Set(sub_G.variable)),
+            chan: Array.from(new Set(sub_G.chan)),
         })
+
+        variable = variable.concat(sub_G.variable)
+        chan = chan.concat(sub_G.chan)
     }
+
+    variable = Array.from(new Set(variable))
+    chan = Array.from(new Set(chan))
+    template[0].chan = chan
+    template[0].variable = variable
     return template
 }

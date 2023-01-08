@@ -1065,7 +1065,7 @@ export const test_data_a = {
             shape: 'state',
             id: 'ee63a1c0-f581-4b57-8253-4181cc9b34b1',
             data: {
-                title: 'NEW STATE',
+                title: 'B2',
                 exp: '',
                 inv: '',
                 composite: false,
@@ -1168,7 +1168,7 @@ export const test_data_a = {
             shape: 'state',
             id: 'f8c408ab-20dc-4c41-a486-35224d069364',
             data: {
-                title: 'NEW STATE',
+                title: 'B3',
                 exp: '',
                 inv: '',
                 composite: false,

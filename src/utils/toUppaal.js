@@ -23,11 +23,25 @@ system Process;
 
 export const toUppaalXML = (datas) => {
     let result1 = xml2js.xml2js(baseXML, { compact: true })
-    result1.nta.template = []
+    console.log(result1.nta)
+    let global_declaretion = '\n'
+    for (const chan of datas[0].chan) {
+        global_declaretion += `broadcast chan ${chan};\n`
+    }
+    for (const variable of datas[0].variable) {
+        global_declaretion += `clock ${variable};\n`
+    }
+    result1.nta.declaration._text += global_declaretion
 
+    let templates_name = []
+
+    result1.nta.template = []
     for (const data of datas) {
+        templates_name.push(data.name)
+
         let x = 0,
             y = 0
+
         const tpl = {
             name: { _text: data.name },
             declaration: { _text: '// Place local declarations here.' },
@@ -159,6 +173,17 @@ export const toUppaalXML = (datas) => {
 
         result1.nta.template.push(tpl)
     }
+
+    let process = '// Place template instantiations here.\n'
+    for (const template_name of templates_name) {
+        process += `${template_name}_1 = ${template_name}();\n`
+    }
+    process += 'system '
+    for (const template_name of templates_name) {
+        process += `${template_name}_1,`
+    }
+    process = process.substring(0, process.length - 1) + ';'
+    result1.nta.system._text = process
 
     const newXml = xml2js.js2xml(result1, { compact: true })
     return newXml
