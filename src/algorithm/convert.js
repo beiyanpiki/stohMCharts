@@ -60,6 +60,11 @@ class Graph {
                 // action! => action
                 this.chan.push(action.substr(0, action.length - 1))
             }
+            if ('update' in data && data.update !== '') {
+                const v = data.update.split(':=')[0]
+                this.variable.push(v)
+            }
+
             this.add_edge(id, shape, data, source.cell, target.cell)
         })
         this.getRoot()
@@ -252,6 +257,8 @@ const convertNode = (node_id, vis, G, A) => {
 }
 
 export const convert = (system_name, data) => {
+    console.log(data)
+
     let template = []
     let variable = []
     let chan = []
@@ -261,6 +268,52 @@ export const convert = (system_name, data) => {
         cell_map.set(cell.id, cell)
     })
 
+    for (let i = 0; i < data.cells.length; i++) {
+        if (
+            (data.cells[i].shape === 'transition' ||
+                data.cells[i].shape === 'probability-transition') &&
+            data.cells[i].source.cell === data.cells[i].target.cell
+        ) {
+            for (let j = 0; j < data.cells.length; j++) {
+                // 找到原同级节点
+                if (data.cells[j].id === data.cells[i].parent) {
+                    // 删除同级节点的儿子(data.cells[i])
+                    data.cells[j].children.splice(
+                        data.cells[j].children.findIndex(
+                            (item) => item === data.cells[i].id
+                        ),
+                        1
+                    )
+                    if (data.cells[j].children.length === 0) {
+                        delete data.cells[j].children
+                    }
+                    cell_map.set(data.cells[j].id, data.cells[j])
+                }
+            }
+
+            // 同级节点时是子节点
+            if ('parent' in cell_map.get(data.cells[i].source.cell)) {
+                // 绑定到父节点上
+                const parent_id = cell_map.get(data.cells[i].source.cell).parent
+                data.cells[i].parent = parent_id
+                // 父节点的子节点更新
+                for (let j = 0; j < data.cells.length; j++) {
+                    if (data.cells[j].id === parent_id) {
+                        if (!data.cells[j].children) {
+                            data.cells[j].children = []
+                        }
+                        data.cells[j].children.push(data.cells[i].id)
+                    }
+                    cell_map.set(parent_id, data.cells[j])
+                }
+            } else {
+                delete data.cells[i].parent
+            }
+            cell_map.set(data.cells[i].id, data.cells[i])
+        }
+    }
+
+    console.log('after', data)
     // Find all composite node
     let composite_nodes = [],
         composite_edges = []
@@ -271,14 +324,14 @@ export const convert = (system_name, data) => {
     })
     data.cells.forEach((cell) => {
         if (
-            cell.shape === 'transition' ||
-            cell.shape === 'probability-transition'
+            (cell.shape === 'transition' ||
+                cell.shape === 'probability-transition') &&
+            !('parent' in cell)
         ) {
-            if (!('parent' in cell) || cell.source.cell === cell.target.cell) {
-                composite_edges.push(cell)
-            }
+            composite_edges.push(cell)
         }
     })
+
     let composite_G = new Graph(),
         composite_A = new Graph()
     composite_G.loadData(composite_nodes, composite_edges)
@@ -288,13 +341,16 @@ export const convert = (system_name, data) => {
         convertNode(composite_G.root, vis, composite_G, composite_A)
     }
 
-    template.push({
-        name: system_name,
-        vertices: composite_A.vertices,
-        data: composite_A.data,
-        adjList: composite_A.adjList,
-        root: composite_G.root,
-    })
+    if (composite_edges.length > 0) {
+        template.push({
+            name: system_name,
+            vertices: composite_A.vertices,
+            data: composite_A.data,
+            adjList: composite_A.adjList,
+            root: composite_G.root,
+        })
+    }
+
     variable = variable.concat(composite_G.variable)
     chan = chan.concat(composite_G.chan)
 
@@ -308,12 +364,19 @@ export const convert = (system_name, data) => {
         composite_node.children.forEach((cell_id) => {
             const cell_data = cell_map.get(cell_id)
             if (
+                cell_data.shape !== 'transition' &&
+                cell_data.shape !== 'probability-transition'
+            ) {
+                nodes.push(cell_data)
+            }
+        })
+        composite_node.children.forEach((cell_id) => {
+            const cell_data = cell_map.get(cell_id)
+            if (
                 cell_data.shape === 'transition' ||
                 cell_data.shape === 'probability-transition'
             ) {
                 edges.push(cell_data)
-            } else {
-                nodes.push(cell_data)
             }
         })
         if (nodes.length === 0) {
@@ -342,5 +405,6 @@ export const convert = (system_name, data) => {
     chan = Array.from(new Set(chan))
     template[0].chan = chan
     template[0].variable = variable
+
     return template
 }

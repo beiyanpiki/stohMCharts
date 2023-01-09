@@ -1423,3 +1423,605 @@ export const test_data_a = {
         },
     ],
 }
+export const test_data_b = {
+    cells: [
+        {
+            position: {
+                x: 140,
+                y: 150,
+            },
+            size: {
+                width: 1220,
+                height: 550,
+            },
+            view: 'react-shape-view',
+            shape: 'state',
+            id: 'bb209623-4270-4482-9e80-26ec51f40058',
+            data: {
+                title: 'P1',
+                exp: '',
+                inv: '',
+                composite: true,
+            },
+            zIndex: 1,
+            children: [
+                'c2c8774a-71e0-4440-a4de-7168bfa9cebc',
+                'd92f8899-79b6-478a-8128-9a190a522057',
+                '85bde932-e78a-4992-ad89-8afadbdd1012',
+                'c02bd3b8-7a81-443c-a800-273c1516c593',
+            ],
+            ports: {
+                groups: {
+                    top: {
+                        position: 'top',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    right: {
+                        position: 'right',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    bottom: {
+                        position: 'bottom',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    left: {
+                        position: 'left',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                },
+                items: [
+                    {
+                        group: 'top',
+                        id: '275fff13-3a84-45e9-b177-8d8617ca2954',
+                    },
+                    {
+                        group: 'right',
+                        id: '771b8fa2-9caf-4cfa-a0d5-e1683564e421',
+                    },
+                    {
+                        group: 'bottom',
+                        id: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+                    },
+                    {
+                        group: 'left',
+                        id: 'bbacfa81-1d40-4ea7-97aa-27f102293513',
+                    },
+                ],
+            },
+        },
+        {
+            position: {
+                x: 302,
+                y: 382,
+            },
+            size: {
+                width: 180,
+                height: 86,
+            },
+            view: 'react-shape-view',
+            shape: 'state',
+            id: 'c2c8774a-71e0-4440-a4de-7168bfa9cebc',
+            data: {
+                title: 'idle',
+                exp: '',
+                inv: '',
+                composite: false,
+            },
+            zIndex: 2,
+            parent: 'bb209623-4270-4482-9e80-26ec51f40058',
+            ports: {
+                groups: {
+                    top: {
+                        position: 'top',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    right: {
+                        position: 'right',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    bottom: {
+                        position: 'bottom',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    left: {
+                        position: 'left',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                },
+                items: [
+                    {
+                        group: 'top',
+                        id: '275fff13-3a84-45e9-b177-8d8617ca2954',
+                    },
+                    {
+                        group: 'right',
+                        id: '771b8fa2-9caf-4cfa-a0d5-e1683564e421',
+                    },
+                    {
+                        group: 'bottom',
+                        id: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+                    },
+                    {
+                        group: 'left',
+                        id: 'bbacfa81-1d40-4ea7-97aa-27f102293513',
+                    },
+                ],
+            },
+        },
+        {
+            position: {
+                x: 836,
+                y: 382,
+            },
+            size: {
+                width: 180,
+                height: 86,
+            },
+            view: 'react-shape-view',
+            shape: 'state',
+            id: 'd92f8899-79b6-478a-8128-9a190a522057',
+            data: {
+                title: 'taken',
+                exp: '',
+                inv: '',
+                composite: false,
+            },
+            zIndex: 3,
+            parent: 'bb209623-4270-4482-9e80-26ec51f40058',
+            ports: {
+                groups: {
+                    top: {
+                        position: 'top',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    right: {
+                        position: 'right',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    bottom: {
+                        position: 'bottom',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    left: {
+                        position: 'left',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                },
+                items: [
+                    {
+                        group: 'top',
+                        id: '275fff13-3a84-45e9-b177-8d8617ca2954',
+                    },
+                    {
+                        group: 'right',
+                        id: '771b8fa2-9caf-4cfa-a0d5-e1683564e421',
+                    },
+                    {
+                        group: 'bottom',
+                        id: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+                    },
+                    {
+                        group: 'left',
+                        id: 'bbacfa81-1d40-4ea7-97aa-27f102293513',
+                    },
+                ],
+            },
+        },
+        {
+            shape: 'transition',
+            router: {
+                name: 'metro',
+            },
+            connector: {
+                name: 'rounded',
+            },
+            data: {
+                guard: '',
+                sync: 'reset?',
+                update: '',
+            },
+            id: '85bde932-e78a-4992-ad89-8afadbdd1012',
+            zIndex: 4,
+            parent: 'bb209623-4270-4482-9e80-26ec51f40058',
+            source: {
+                cell: 'c2c8774a-71e0-4440-a4de-7168bfa9cebc',
+                port: '275fff13-3a84-45e9-b177-8d8617ca2954',
+            },
+            target: {
+                cell: 'd92f8899-79b6-478a-8128-9a190a522057',
+                port: '275fff13-3a84-45e9-b177-8d8617ca2954',
+            },
+        },
+        {
+            shape: 'transition',
+            router: {
+                name: 'metro',
+            },
+            connector: {
+                name: 'rounded',
+            },
+            data: {
+                guard: '',
+                sync: '',
+                update: 'x:=0',
+            },
+            id: 'c02bd3b8-7a81-443c-a800-273c1516c593',
+            zIndex: 5,
+            parent: 'bb209623-4270-4482-9e80-26ec51f40058',
+            source: {
+                cell: 'd92f8899-79b6-478a-8128-9a190a522057',
+                port: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+            },
+            target: {
+                cell: 'c2c8774a-71e0-4440-a4de-7168bfa9cebc',
+                port: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+            },
+        },
+        {
+            position: {
+                x: 139.99999999999784,
+                y: 734.0000000000064,
+            },
+            size: {
+                width: 1120,
+                height: 430,
+            },
+            view: 'react-shape-view',
+            shape: 'state',
+            id: '6b2d938d-292b-4f7a-87c5-d3b4afb14d8d',
+            data: {
+                title: 'Obs',
+                exp: '',
+                inv: '',
+                composite: true,
+            },
+            zIndex: 6,
+            children: [
+                'daa7700f-32fa-41a7-b221-75a1b7503a43',
+                'e8df1de0-acc7-41bd-a162-b788925f6e22',
+            ],
+            ports: {
+                groups: {
+                    top: {
+                        position: 'top',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    right: {
+                        position: 'right',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    bottom: {
+                        position: 'bottom',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    left: {
+                        position: 'left',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                },
+                items: [
+                    {
+                        group: 'top',
+                        id: '275fff13-3a84-45e9-b177-8d8617ca2954',
+                    },
+                    {
+                        group: 'right',
+                        id: '771b8fa2-9caf-4cfa-a0d5-e1683564e421',
+                    },
+                    {
+                        group: 'bottom',
+                        id: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+                    },
+                    {
+                        group: 'left',
+                        id: 'bbacfa81-1d40-4ea7-97aa-27f102293513',
+                    },
+                ],
+            },
+        },
+        {
+            position: {
+                x: 258,
+                y: 906,
+            },
+            size: {
+                width: 180,
+                height: 86,
+            },
+            view: 'react-shape-view',
+            shape: 'state',
+            id: 'daa7700f-32fa-41a7-b221-75a1b7503a43',
+            data: {
+                title: 'Loop',
+                exp: '',
+                inv: '',
+                composite: false,
+            },
+            zIndex: 7,
+            parent: '6b2d938d-292b-4f7a-87c5-d3b4afb14d8d',
+            ports: {
+                groups: {
+                    top: {
+                        position: 'top',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    right: {
+                        position: 'right',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    bottom: {
+                        position: 'bottom',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                    left: {
+                        position: 'left',
+                        attrs: {
+                            circle: {
+                                r: 8,
+                                magnet: true,
+                                stroke: '#5F95FF',
+                                strokeWidth: 2,
+                                fill: '#fff',
+                                style: {
+                                    visibility: 'hidden',
+                                },
+                            },
+                        },
+                    },
+                },
+                items: [
+                    {
+                        group: 'top',
+                        id: '275fff13-3a84-45e9-b177-8d8617ca2954',
+                    },
+                    {
+                        group: 'right',
+                        id: '771b8fa2-9caf-4cfa-a0d5-e1683564e421',
+                    },
+                    {
+                        group: 'bottom',
+                        id: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+                    },
+                    {
+                        group: 'left',
+                        id: 'bbacfa81-1d40-4ea7-97aa-27f102293513',
+                    },
+                ],
+            },
+        },
+        {
+            shape: 'transition',
+            router: {
+                name: 'metro',
+            },
+            connector: {
+                name: 'rounded',
+            },
+            data: {
+                guard: 'x>=2',
+                sync: 'reset!',
+                update: '',
+            },
+            id: 'e8df1de0-acc7-41bd-a162-b788925f6e22',
+            zIndex: 8,
+            parent: '6b2d938d-292b-4f7a-87c5-d3b4afb14d8d',
+            source: {
+                cell: 'daa7700f-32fa-41a7-b221-75a1b7503a43',
+                port: '275fff13-3a84-45e9-b177-8d8617ca2954',
+            },
+            target: {
+                cell: 'daa7700f-32fa-41a7-b221-75a1b7503a43',
+                port: '1dacefb8-396c-420c-867c-a3960afcaf1e',
+            },
+        },
+    ],
+}

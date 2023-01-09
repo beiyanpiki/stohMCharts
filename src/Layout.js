@@ -1,14 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { Graph } from '@antv/x6'
-import { Transform } from '@antv/x6-plugin-transform'
-import { Selection } from '@antv/x6-plugin-selection'
-import { Snapline } from '@antv/x6-plugin-snapline'
-import { Keyboard } from '@antv/x6-plugin-keyboard'
 import { Clipboard } from '@antv/x6-plugin-clipboard'
 import { History } from '@antv/x6-plugin-history'
+import { Keyboard } from '@antv/x6-plugin-keyboard'
+import { Selection } from '@antv/x6-plugin-selection'
+import { Snapline } from '@antv/x6-plugin-snapline'
 import { Stencil } from '@antv/x6-plugin-stencil'
+import { Transform } from '@antv/x6-plugin-transform'
 import { register } from '@antv/x6-react-shape'
+import React, { useEffect, useRef, useState } from 'react'
 
+import { DownOutlined, GithubFilled } from '@ant-design/icons'
+import { Button, Dropdown, Space, Upload } from 'antd'
+import { Base64 } from 'js-base64'
+import { convert, test_data_a, test_data_b } from './algorithm'
 import {
     DelayExpState,
     DelayNormalState,
@@ -25,12 +29,8 @@ import {
     StateInfo,
     TransitionSidebar,
 } from './sidebar'
-import { convert, test_data_a } from './algorithm'
-import { toUppaalXML } from './utils'
-import { Button, Dropdown, Space, Upload } from 'antd'
-import { GithubFilled, DownOutlined } from '@ant-design/icons'
-import { Base64 } from 'js-base64'
 import Title from './Title'
+import { toUppaalXML } from './utils'
 
 const ports = {
     groups: {
@@ -598,12 +598,18 @@ const Layout = () => {
                             </Button>
                             <Dropdown
                                 menu={{
-                                    items: [{ key: '1', label: 'Case 1' }],
+                                    items: [
+                                        { key: '1', label: 'Case 1' },
+                                        { key: '2', label: 'Case 2' },
+                                    ],
                                     onClick: ({ key }) => {
                                         let data
                                         if (key === '1') {
+                                            data = test_data_b
+                                        } else if (key === '2') {
                                             data = test_data_a
                                         }
+                                        setTitle(`Sample_${key}`)
                                         G.clearCells()
                                         G.fromJSON(data)
                                     },

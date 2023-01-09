@@ -28,6 +28,7 @@ export const toUppaalXML = (datas) => {
     for (const chan of datas[0].chan) {
         global_declaretion += `broadcast chan ${chan};\n`
     }
+    console.log(datas[0].variable)
     for (const variable of datas[0].variable) {
         global_declaretion += `clock ${variable};\n`
     }
