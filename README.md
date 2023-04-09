@@ -5,7 +5,6 @@ This is official implementation of **stohMCharts: A Modeling Framework for Quant
 ## Requirements
 
 To use stohMCharts, you'll need the following software installed on your system:
-
 - Node.js version 19.4.0 or later.
 - Uppaal version 4.0.15 or later.
  
@@ -32,7 +31,6 @@ npm run build
 ```
 
 4. After the build process is complete, a new `build` folder will be generated. This folder contains the web application, which you can use in two ways:
-
 - You can use code server to run the web application on your local machine.
 - You can upload the `build` folder to your server to make the web application available to others.
 
@@ -57,14 +55,10 @@ We've provided a simple example to show how to build and verify an SMC model usi
 3. Click the `Export` button to get the Uppaal XML file(in this case, it's `Sample_1.xml`), you can open this file in Uppaal directly.
 
 4. Finally, you can check the model with existing queries in two ways:
-
 - Use the [GUI verifier](https://docs.uppaal.org/gui-reference/verifier/) to check our queries and plot the results (as shown in Figure 3).
-
 ![Figure 3](doc/figure3.png)
-
 - Use [Verifyta](https://docs.uppaal.org/toolsandapi/verifyta/) by running the following command to get a full log of the check, as shown in figure 4:
 ```bash
 .\verifyta.exe -t 0 .\Sample_1.xml -u -a 0.01 -E 0.05 -w 0.02 --histogram-bar-count 50  --state-representation 3  > out
 ```
-
 ![Figure 4](doc/figure4.png)
