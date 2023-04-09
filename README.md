@@ -11,7 +11,7 @@ To use stohMCharts, you'll need the following software installed on your system:
  
 ## Deploy stohMCharts
 
-We've included a simple example to demonstrate how to build and verify a SMC model:
+To get started with stohMCharts, follow these steps:
 
 1. Clone the code to your local machine by running the following command:
 
