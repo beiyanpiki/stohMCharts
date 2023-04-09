@@ -21,7 +21,7 @@ system Process;
 \t</queries>
 </nta>`
 
-export const toUppaalXML = (datas) => {
+export const toUppaalXML = (datas, quries) => {
     let result1 = xml2js.xml2js(baseXML, { compact: true })
     console.log(result1.nta)
     let global_declaretion = '\n'
@@ -186,6 +186,22 @@ export const toUppaalXML = (datas) => {
     process = process.substring(0, process.length - 1) + ';'
     result1.nta.system._text = process
 
+    result1.nta.queries.query = []
+    if (quries.length === 0) {
+        result1.nta.queries.query.push({
+            formula: { _text: '' },
+            comment: { _text: '' },
+        })
+    } else {
+        for (const query of quries) {
+            result1.nta.queries.query.push({
+                formula: { _text: query.text },
+                comment: { _text: '' },
+            })
+        }
+    }
+
     const newXml = xml2js.js2xml(result1, { compact: true })
+
     return newXml
 }

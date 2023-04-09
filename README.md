@@ -1,32 +1,70 @@
 # stohMCharts
 
-This is official implementation of **stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems.**
+This is official implementation of **stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems.**. 
 
 ## Requirements
 
-- nodes == 19.4.0
-- uppaal == 4.0.15
+To use stohMCharts, you'll need the following software installed on your system:
 
+- Node.js version 19.4.0 or later.
+- Uppaal version 4.0.15 or later.
+ 
 ## Deploy stohMCharts
 
-Clone code to local:
+To get started with stohMCharts, follow these steps:
+
+1. Clone the code to your local machine by running the following command:
 
 ```bash
 git clone git@github.com:beiyanpiki/stohMCharts.git --depth=1 && cd stohMCharts
 ```
 
-Install dependency package，please ensure that `npm` has been added to your PATH:
+2. Install the dependencies by running the following command. Make sure that `npm` is added to your PATH.
 
 ```bash
 npm install
 ```
 
-Build application:
+3. Build the application by running the following command:
 
 ```bash
 npm run build
 ```
 
-Wait a sec, a new `build` folder will be generated.
+4. After the build process is complete, a new `build` folder will be generated. This folder contains the web application, which you can use in two ways:
 
-This folder contains a web application, you may use [code server](https://github.com/coder/code-server) or upload the folder to server.
+- You can use code server to run the web application on your local machine.
+- You can upload the `build` folder to your server to make the web application available to others.
+
+## Sample
+
+We prepare and start as a simple example to show how to build and verify a SMC model. 
+
+1. Build a composite model like figure 1. Click `Examples -> Case 1` to load our prepared model.
+
+![Figure 1](doc/figure1.png)
+
+
+2. Add some queries to verify our model. Click 'Verification' and input the following queries (as shown in figure 2):
+- ``E<> A_1.A3``
+- ``E<> A_1.A4``
+- ``E<> B_1.B2``
+- ``E<> B_1.B3``
+- ``Pr[<=30](<> Sample_1_1.B)``
+
+![Figure 2](doc/figure2.png)
+
+3. Click `export` button to get the Uppaal XML file.
+
+4. Finally, you can check the model with existing queries in two ways:
+
+- Use the [GUI verifier](https://docs.uppaal.org/gui-reference/verifier/) to check our queries and plot the results (as shown in figure 3).
+
+![Figure 3](doc/figure3.png)
+
+- Use [`verifyta`](https://docs.uppaal.org/toolsandapi/verifyta/) by running the following command to get a full log of the check, as shown in figure 4:
+```bash
+.\verifyta.exe -t 0 .\Sample_1.xml -u -a 0.01 -E 0.05 -w 0.02 --histogram-bar-count 50  --state-representation 3  > out
+```
+
+![Figure 4](doc/figure4.png)

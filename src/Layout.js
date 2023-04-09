@@ -28,6 +28,7 @@ import {
     ProbabilityTransitionSidebar,
     StateInfo,
     TransitionSidebar,
+    VerificationSidebar,
 } from './sidebar'
 import Title from './Title'
 import { toUppaalXML } from './utils'
@@ -220,6 +221,7 @@ const Layout = () => {
         data: {},
     })
     const [G, setG] = useState(null)
+    const [verification, setVerification] = useState([])
 
     const [title, setTitle] = useState('New System')
 
@@ -576,6 +578,7 @@ const Layout = () => {
                                 size="small"
                                 onClick={() => {
                                     const graph_data = G.toJSON()
+                                    console.log(graph_data)
                                     download(
                                         `${title}.smc`,
                                         JSON.stringify(graph_data)
@@ -590,11 +593,25 @@ const Layout = () => {
                                 onClick={() => {
                                     const cells = G.toJSON()
                                     const output = convert(title, cells)
-                                    const xml = toUppaalXML(output)
+                                    const xml = toUppaalXML(
+                                        output,
+                                        verification
+                                    )
                                     download(`${title}.xml`, xml, false)
                                 }}
                             >
                                 Export
+                            </Button>
+                            <Button
+                                size="small"
+                                onClick={() => {
+                                    setState({
+                                        ...state,
+                                        shape: 'verification',
+                                    })
+                                }}
+                            >
+                                Verification
                             </Button>
                             <Dropdown
                                 menu={{
@@ -605,9 +622,9 @@ const Layout = () => {
                                     onClick: ({ key }) => {
                                         let data
                                         if (key === '1') {
-                                            data = test_data_b
-                                        } else if (key === '2') {
                                             data = test_data_a
+                                        } else if (key === '2') {
+                                            data = test_data_b
                                         }
                                         setTitle(`Sample_${key}`)
                                         G.clearCells()
@@ -687,8 +704,8 @@ const Layout = () => {
                                         onChange={(newState) => {
                                             setState({
                                                 id: newState.id,
+                                                shape: state.shape,
                                                 data: {
-                                                    shape: state.shape,
                                                     title: newState.title,
                                                     exp: newState.exp,
                                                     variable: newState.variable,
@@ -931,6 +948,17 @@ const Layout = () => {
                                                 update: '',
                                                 weight: 0,
                                             })
+                                        }}
+                                    />
+                                )
+                            case 'verification':
+                                return (
+                                    <VerificationSidebar
+                                        state={{
+                                            quries: verification,
+                                        }}
+                                        onChange={(newState) => {
+                                            setVerification(newState)
                                         }}
                                     />
                                 )
