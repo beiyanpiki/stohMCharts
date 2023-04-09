@@ -27,6 +27,6 @@ Build application:
 npm run build
 ```
 
-Wait a sec, you will get a new `build` folder.
+Wait a sec, a new `build` folder will be generated.
 
-This is a web application. You may use [code server](https://github.com/coder/code-server) or upload this folder to server to use stohMCharts.
+This folder contains a web application, you may use [code server](https://github.com/coder/code-server) or upload the folder to server.
