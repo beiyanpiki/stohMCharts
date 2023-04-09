@@ -44,6 +44,8 @@ We've provided a simple example to show how to build and verify an SMC model usi
 
 
 2. Add some queries to verify our model. Click `Verification` and input the following queries (as shown in Figure 2):
+> Please note that `system_name` = `template_name` + '_1'. For instance, the composite model `B`'s system_name is `B_1`, so you need use `B_1` in query's formula like `E<> B_1.B2` but not `E<> B.B2`
+
     - ``E<> A_1.A3``
     - ``E<> A_1.A4``
     - ``E<> B_1.B2``
