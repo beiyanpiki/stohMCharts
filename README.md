@@ -15,7 +15,7 @@ Clone code to local:
 git clone git@github.com:beiyanpiki/stohMCharts.git --depth=1 && cd stohMCharts
 ```
 
-Install dependency package，please make sure `npm` was added to your PATH:
+Install dependency package，please ensure that `npm` has been added to your PATH:
 
 ```bash
 npm install
