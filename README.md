@@ -1,6 +1,6 @@
 # stohMCharts
 
-This is official implementation of **stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems.**. 
+This is official implementation of **stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems.**
 
 ## Requirements
 
@@ -38,14 +38,14 @@ npm run build
 
 ## Sample
 
-We prepare and start as a simple example to show how to build and verify a SMC model. 
+We've provided a simple example to show how to build and verify an SMC model using stohMCharts. Follow these steps to get started:
 
-1. Build a composite model like figure 1. Click `Examples -> Case 1` to load our prepared model.
+1. Build a composite model like the one shown in Figure 1. You can load our prepared model by clicking `Examples -> Case 1`.
 
 ![Figure 1](doc/figure1.png)
 
 
-2. Add some queries to verify our model. Click 'Verification' and input the following queries (as shown in figure 2):
+2. Add some queries to verify our model. Click `Verification` and input the following queries (as shown in Figure 2):
 - ``E<> A_1.A3``
 - ``E<> A_1.A4``
 - ``E<> B_1.B2``
@@ -54,15 +54,15 @@ We prepare and start as a simple example to show how to build and verify a SMC m
 
 ![Figure 2](doc/figure2.png)
 
-3. Click `export` button to get the Uppaal XML file.
+3. Click the `Export` button to get the Uppaal XML file(in this case, it's `Sample_1.xml`), you can open this file in Uppaal directly.
 
 4. Finally, you can check the model with existing queries in two ways:
 
-- Use the [GUI verifier](https://docs.uppaal.org/gui-reference/verifier/) to check our queries and plot the results (as shown in figure 3).
+- Use the [GUI verifier](https://docs.uppaal.org/gui-reference/verifier/) to check our queries and plot the results (as shown in Figure 3).
 
 ![Figure 3](doc/figure3.png)
 
-- Use [`verifyta`](https://docs.uppaal.org/toolsandapi/verifyta/) by running the following command to get a full log of the check, as shown in figure 4:
+- Use [Verifyta](https://docs.uppaal.org/toolsandapi/verifyta/) by running the following command to get a full log of the check, as shown in figure 4:
 ```bash
 .\verifyta.exe -t 0 .\Sample_1.xml -u -a 0.01 -E 0.05 -w 0.02 --histogram-bar-count 50  --state-representation 3  > out
 ```
