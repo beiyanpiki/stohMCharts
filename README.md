@@ -2,20 +2,6 @@
 
 This is official implementation of **stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems.**
 
-Please cite our [paper](https://ieeexplore.ieee.org/document/10114942) if you use this code in your own work:
-```bibtex
-@ARTICLE{10114942,
-  author={An, Dongdong and Pan, Zongxu and Gao, Xin and Li, Shuang and Yin, Ling and Li, Tengfei},
-  journal={IEEE Access}, 
-  title={stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems}, 
-  year={2023},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/ACCESS.2023.3272672}
-}
-```
-
 ## Requirements
 
 To use stohMCharts, you'll need the following software installed on your system:
@@ -78,3 +64,19 @@ We've provided a simple example to show how to build and verify an SMC model usi
     .\verifyta.exe -t 0 .\Sample_1.xml -u -a 0.01 -E 0.05 -w 0.02 --histogram-bar-count 50  --state-representation 3  > out
     ```
     ![Figure 4](doc/figure4.png)
+
+## Cite
+
+Please cite our [paper](https://ieeexplore.ieee.org/document/10114942) if you use this code in your own work:
+```bibtex
+@ARTICLE{10114942,
+  author={An, Dongdong and Pan, Zongxu and Gao, Xin and Li, Shuang and Yin, Ling and Li, Tengfei},
+  journal={IEEE Access}, 
+  title={stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2023.3272672}
+}
+```
