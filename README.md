@@ -69,14 +69,11 @@ We've provided a simple example to show how to build and verify an SMC model usi
 
 Please cite our [paper](https://ieeexplore.ieee.org/document/10114942) if you use this code in your own work:
 ```bibtex
-@ARTICLE{10114942,
+@article{an2023stohmcharts,
+  title={stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems},
   author={An, Dongdong and Pan, Zongxu and Gao, Xin and Li, Shuang and Yin, Ling and Li, Tengfei},
-  journal={IEEE Access}, 
-  title={stohMCharts: A Modeling Framework for Quantitative Performance Evaluation of Cyber-Physical-Social Systems}, 
+  journal={IEEE Access},
   year={2023},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/ACCESS.2023.3272672}
+  publisher={IEEE}
 }
 ```
